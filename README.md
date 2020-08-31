@@ -1,5 +1,7 @@
 # Filmmaker
- <a href="https://discord.gg/zjjWcyh"><img alt="Discord" src="https://img.shields.io/discord/745446273854734407?style=social"></a>
+<a href="https://discord.gg/zjjWcyh" align="center"><img alt="Discord" src="https://img.shields.io/discord/745446273854734407?style=social"></a>
+<br>
+
 A (hopefully) in-house animation studio created inside the ROBLOX game engine. Main difference between the default ROBLOX animation studio and Filmmaker will be the introduction of bezier easing - basically using the same industry standard techniques for easing as the animation industry have been for years. In fact, my implementation might be more primitive. I (lego man) am not entirely sure, though.
 
 ## Contributing
