@@ -61,7 +61,7 @@ local function CalculateNewton(x, gt, x1, x2)
 			return gt		
 		end
 		local currX = CalculateBezier(gt, x1, x2) - x
-		gt -= currX / currSlope
+		gt = gt - currX / currSlope
 	end
 	return gt
 end

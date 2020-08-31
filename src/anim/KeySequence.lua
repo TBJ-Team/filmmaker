@@ -31,9 +31,9 @@ end
 function KeySequence:ForceAdd(Value, Time)
 	Value = Value or self.DefaultValue
 	assert(typeof(self.Object[self.Index]) == typeof(Value), "Incorrect key type!")
-	local Key = Key.new(Value, Time)
-	table.insert(Sequence, Key)
-	return Key -- need to be able to manipulate keys
+	local NewKey = Key.new(Value, Time)
+	table.insert(Sequence, NewKey)
+	return NewKey -- need to be able to manipulate keys
 end
 
 
@@ -41,11 +41,10 @@ end
 	Gets the value at a given point in time.
 ]]
 function KeySequence:Get(Time)
-	local Key1, Key2
 	local Largest = 0
 	local LargestKey = nil
 	-- we need to get the keys right after and before the time Time
-	for k, v in pairs(self.Sequence) do
+	for _, v in pairs(self.Sequence) do
 		if v.Time < Time then  
 			if v.Time > Largest then  
 				Largest = v.Time
@@ -55,7 +54,7 @@ function KeySequence:Get(Time)
 	end
 	local Smallest = math.huge
 	local SmallestKey = nil
-	for k, v in pairs(self.Sequence) do
+	for _, v in pairs(self.Sequence) do
 		if v.Time > Time then
 			if v.Time < Smallest then
 				Smallest = v.Time
@@ -72,7 +71,8 @@ function KeySequence:Get(Time)
 	local y1 = LargestKey.Bezier[2]
 	local x2 = SmallestKey.Bezier[3]
 	local y2 = SmallestKey.Bezier[4]
-	local EasingFunction = Ease(x1, y1, x2, y2) -- FIXME: Need to clamp X values eventually! This could cause a very bad bug down the line!
+	-- FIXME: Need to clamp X values eventually! This could cause a very bad bug down the line!
+	local EasingFunction = Ease(x1, y1, x2, y2) 
 	local UnnormalizedTime = Time - LargestKey.Time
 	local NormalizedTime = UnnormalizedTime / (SmallestKey.Time - LargestKey.Time)
 	return EasingFunction(NormalizedTime)
