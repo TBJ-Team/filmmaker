@@ -27,12 +27,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        luarocks install luafilesystem
-        luarocks install luacov
-        luarocks install luacov-reporter-lcov
         luarocks install luacheck
 
     - name: Test
       run: |
         luacheck src
-        luacov -r lcov
