@@ -92,7 +92,7 @@ function KeySequence:Lagrange(Time)
 				Add = Add + (n[j].Value * ((Time - n[k].Time) / (n[j].Time - n[k].Time)))
 			end
 		end
-		Out += Add
+		Out = Out + Add
 	end
 	return Out
 end

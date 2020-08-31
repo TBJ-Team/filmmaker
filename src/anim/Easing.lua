@@ -40,7 +40,8 @@ end
 -- also called binary subdivide
 local function CalculateDichotomic(x, a, b, x1, x2)
 	local currX, currT, i = 0
-	while (math.abs(currX) > SUBDIVISION_PRECISION and (i = i + 1) < SUBDIVISION_MAX_ITERATIONS) do
+	while (math.abs(currX) > SUBDIVISION_PRECISION and (i + 1) < SUBDIVISION_MAX_ITERATIONS) do
+		i = i + 1
 		-- go halfway between a and b
 		currT = a + (b - a) / 2
 		currX = CalculateBezier(currT, x1, x2) - x

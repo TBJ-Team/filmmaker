@@ -19,7 +19,11 @@ local function RenderLine(point1, point2, frame)
 	local slope = frame or Instance.new("Frame")
 	slope.Size = UDim2.new(0, difference.Magnitude + 1, 0, 2)
 	slope.Rotation = math.deg(math.atan2(difference.Y, difference.X))
-	slope.Position = UDim2.new(0, (point1.x + difference.x/2) - (difference.Magnitude + 1) * 0.5, 0, (point1.y + difference.y/2) - 1)
+	slope.Position = UDim2.new(
+		0,
+		(point1.x + difference.x/2) - (difference.Magnitude + 1) * 0.5,
+		0,
+		(point1.y + difference.y/2) - 1)
 	slope.BorderSizePixel = 0
 	slope.BackgroundColor3 = Color3.new()
 	return slope
