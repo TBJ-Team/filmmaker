@@ -77,8 +77,8 @@ end
 --[[
 	Lights, Camera, Action!
 ]]
-function Animation:Preview(Time)
-	for _, v in pairs(Objects) do
+function animation:Preview(Time)
+	for _, v in pairs(self.Objects) do
 		v:Preview(Time)
 	end
 end

@@ -89,7 +89,7 @@ function KeySequence:Lagrange(Time)
 		local Add = 1
 		for k = 1, #n do
 			if k ~= j then
-				Add += n[j].Value * ((Time - n[k].Time) / (n[j].Time - n[k].Time))
+				Add = Add + (n[j].Value * ((Time - n[k].Time) / (n[j].Time - n[k].Time)))
 			end
 		end
 		Out += Add

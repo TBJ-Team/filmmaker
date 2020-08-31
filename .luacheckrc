@@ -755,6 +755,10 @@ stds.plugin = {
 
 ignore = {
 	"212", -- unused arguments
+    "611", -- ignore whitespace warnings
+    "612",
+    "613",
+    "614",
 }
 
 std = "lua51+roblox"
