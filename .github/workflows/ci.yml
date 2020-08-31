@@ -33,6 +33,5 @@ jobs:
 
     - name: Test
       run: |
-        lua -lluacov bin/spec.lua
         luacheck src
         luacov -r lcov
