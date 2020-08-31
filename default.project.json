@@ -1,8 +1,6 @@
 {
     "name": "Filmmaker",
-	
-    "tree": 
-    {
-        "$path": "."
+    "tree": {
+        "$path": "src"
     }
 }
