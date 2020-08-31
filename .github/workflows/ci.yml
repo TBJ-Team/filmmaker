@@ -33,5 +33,5 @@ jobs:
 
     - name: Test
       run: |
-        luacheck Modules
+        luacheck src
         luacov -r lcov

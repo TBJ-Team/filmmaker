@@ -46,18 +46,22 @@ function KeySequence:Get(Time)
 	local LargestKey = nil
 	-- we need to get the keys right after and before the time Time
 	for k, v in pairs(self.Sequence) do
-		if v.Time > Time then continue end
-		if v.Time < Largest then continue end
-		Largest = v.Time
-		LargestKey = v
+		if v.Time < Time then  
+			if v.Time > Largest then  
+				Largest = v.Time
+				LargestKey = v
+			end
+		end
 	end
 	local Smallest = math.huge
 	local SmallestKey = nil
 	for k, v in pairs(self.Sequence) do
-		if v.Time < Time then continue end
-		if v.Time > Smallest then continue end
-		Smallest = v.Time
-		SmallestKey = v
+		if v.Time > Time then
+			if v.Time < Smallest then
+				Smallest = v.Time
+				SmallestKey = v
+			end
+		end
 	end
 	-- have to make sure neither of them are nil so the entire thing doesnt blow up with errors
 	if not SmallestKey then SmallestKey = LargestKey end
