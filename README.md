@@ -2,6 +2,8 @@
 	<h1>Filmmaker Plugin</h1>
 	<a href="https://discord.gg/zjjWcyh">
 		<img alt="Discord" src="https://img.shields.io/discord/745446273854734407">
+	</a>
+	<a href="https://github.com/TBJ-Team/filmmaker-plugin/actions">
 		<img alt="CI" src="https://github.com/TBJ-Team/filmmaker-plugin/workflows/CI/badge.svg">
 	</a>
 </div>
