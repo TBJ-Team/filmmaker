@@ -32,7 +32,7 @@ function KeySequence:ForceAdd(Value, Time)
 	Value = Value or self.DefaultValue
 	assert(typeof(self.Object[self.Index]) == typeof(Value), "Incorrect key type!")
 	local NewKey = Key.new(Value, Time)
-	table.insert(Sequence, NewKey)
+	table.insert(self.Sequence, NewKey)
 	return NewKey -- need to be able to manipulate keys
 end
 

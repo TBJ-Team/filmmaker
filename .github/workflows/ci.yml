@@ -36,25 +36,3 @@ jobs:
       run: |
         luacheck src
         luacov -r lcov
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-
-    - uses: Roblox/setup-foreman@v1
-      with:
-        version: "^1.0.0"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Report tool versions
-      run: rojo --version
-
-    - name: Deploy
-      run: rojo build --output "Filmmaker.rbxmx"
-      env:
-        ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}

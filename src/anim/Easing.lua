@@ -55,7 +55,7 @@ local function CalculateDichotomic(x, a, b, x1, x2)
 end
 
 local function CalculateNewton(x, gt, x1, x2)
-	for i = 1, NEWTON_ITERATIONS do
+	for _ = 1, NEWTON_ITERATIONS do
 		local currSlope = CalculateSlope(gt, x1, x2)
 		if currSlope == 0 then
 			return gt		
