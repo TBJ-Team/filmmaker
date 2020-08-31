@@ -11,6 +11,6 @@ The plugin version of Filmmaker. All information about the plugin and standalone
 
 To build and run Filmmaker as a plugin: 
 ```
-rojo build --output "Filmmaker.rbxmx
+rojo build --output "Filmmaker.rbxmx"
 ```
 Then simply copy the output into your plugins folder. You can also use the Roblox or Github releases.
