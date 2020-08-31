@@ -51,4 +51,4 @@ jobs:
       run: rojo --version
 
     - name: Deploy
-      run: rojo build
+      run: rojo build --output "Filmmaker.rbxmx"
