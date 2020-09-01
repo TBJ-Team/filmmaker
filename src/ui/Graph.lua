@@ -1,14 +1,6 @@
---[[
-	Intended to just be a basic renderer for the graph. A few things need to be
-	added, however.
-	
-	TODO:
-		- Handles for bezier easing manipulation
-		- Less aliased then the default 
-]]
+local Roact = require(script.Parent.Parent.Roact)
 
-local graph = {}
-graph.__index = graph
+local Graph = Roact.Component:extend("Graph")
 
 --[[
 	Used to create a frame to represent a small part of the slope on the curve.
@@ -29,21 +21,22 @@ local function RenderLine(point1, point2, frame)
 	return slope
 end
 
---[[
-	Simple constructor.
-]]
-function graph.new(Frame, Resolution, KeySequence)
-	return setmetatable({
-							Frame = Frame,
-							Resolution = Resolution, 
-							KeySequence = KeySequence
-						}, graph) 
+function Graph:init()
+
+end
+
+function Graph:shouldUpdate()
+
+end
+
+function Graph:markDirty()
+
 end
 
 --[[
 	Used to update the graph display with new information.
 ]]
-function graph:Update(Start, End, Zoom)
+function Graph:render()
 	RenderLine(Vector2.new(1,2), Vector2.new(3,4), self.Frame)
 end
 
