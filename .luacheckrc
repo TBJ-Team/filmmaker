@@ -298,6 +298,8 @@ stds.roblox = {
 
         ColorSequence = def_fields({"new"}),
 
+        plugin = def_fields({"CreatePluginMenu", "CreatePluginAction", "CreateDockWidgetPluginGui", "CreateToolbar"}),
+
         ColorSequenceKeypoint = def_fields({"new"}),
 
         DockWidgetPluginGuiInfo = def_fields({"new"}),
