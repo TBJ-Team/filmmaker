@@ -6,8 +6,8 @@ repo_url: https://github.com/TBJ-Team/filmmaker-plugin
 theme:
   name: material
   palette:
-    primary: 'Red'
-    accent: 'Red'
+    primary: 'Yellow'
+    accent: 'Yellow'
 
 nav:
   - Home: index.md
