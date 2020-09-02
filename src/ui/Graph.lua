@@ -8,16 +8,15 @@ local Graph = Roact.Component:extend("Graph")
 ]]
 local function RenderLine(point1, point2, frame)
 	local difference = point2 - point1
-	local slope = frame or Instance.new("Frame")
-	slope.Size = UDim2.new(0, difference.Magnitude + 1, 0, 2)
-	slope.Rotation = math.deg(math.atan2(difference.Y, difference.X))
-	slope.Position = UDim2.new(
-		0,
-		(point1.x + difference.x/2) - (difference.Magnitude + 1) * 0.5,
-		0,
-		(point1.y + difference.y/2) - 1)
-	slope.BorderSizePixel = 0
-	slope.BackgroundColor3 = Color3.new()
+	local slope = Roact.createElement(frame or "Frame", {
+		Size = UDim2.new(0, difference.Magnitude + 1, 0, 2),
+		Rotation = math.deg(math.atan2(difference.Y, difference.X)),
+		Position = UDim2.new(
+		0, (point1.x + difference.x/2) - (difference.Magnitude + 1) * 0.5,
+		0, (point1.y + difference.y/2) - 1),
+		BorderSizePixel = 0,
+		BackgroundColor3 = Color3.new()
+	})
 	return slope
 end
 
@@ -25,7 +24,7 @@ function Graph:init()
 
 end
 
-function Graph:shouldUpdate()
+function Graph:shouldUpdate(newProps, newState)
 
 end
 
@@ -37,7 +36,7 @@ end
 	Used to update the graph display with new information.
 ]]
 function Graph:render()
-	RenderLine(Vector2.new(1,2), Vector2.new(3,4), self.Frame)
+	
 end
 
-return graph
+return Graph
