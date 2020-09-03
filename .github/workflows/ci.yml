@@ -19,16 +19,14 @@ jobs:
       with:
         submodules: true
 
-    - uses: leafo/gh-actions-lua@v5
+    - uses: Roblox/setup-foreman@v1
       with:
-        luaVersion: "5.1"
-
-    - uses: leafo/gh-actions-luarocks@v2
-
-    - name: Install dependencies
-      run: |
-        luarocks install luacheck
+        version: "^1.0.0"
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Report tool versions
+      run: selene --version
 
     - name: Test
       run: |
-        luacheck src
+        selene src
