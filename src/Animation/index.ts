@@ -7,7 +7,9 @@ class Animation {
 	instances: AnimationInstance[] = [];
 
 	addInstance(inst: Instance): AnimationInstance {
-		return new AnimationInstance(inst);
+		let animInst: AnimationInstance = new AnimationInstance(inst);
+		this.instances.push(animInst);
+		return animInst;
 	}
 }
 
