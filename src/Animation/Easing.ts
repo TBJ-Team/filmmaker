@@ -1,3 +1,11 @@
+/** 
+ * https://github.com/gre/bezier-easing
+ * BezierEasing - use bezier curve for transition easing function
+ * by Gaëtan Renaudeau 2014 - 2015 – MIT License
+ * 
+ * Ported over to TS due to the limitations of roblox-ts.
+ */
+
 const NEWTON_ITERATIONS = 4;
 const NEWTON_MIN_SLOPE = 0.001;
 const SUBDIVISION_PRECISION = 0.0000001;

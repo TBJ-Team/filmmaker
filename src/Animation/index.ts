@@ -7,9 +7,15 @@ type Overloaded =
 	| Vector3
 	| Vector3int16;
 
+export type Animatable = 
+	| BasePart
+	| Light
+	| JointInstance;
+
 type AnimatableValue =
 	| Overloaded
-	| number;
+	| number
+	| undefined;
 
 /**
  * All of an animation.
@@ -17,7 +23,7 @@ type AnimatableValue =
 export class Animation {
 	instances: AnimationInstance[] = [];
 
-	addInstance(inst: Instance): AnimationInstance {
+	addInstance(inst: Animatable): AnimationInstance {
 		let animInst: AnimationInstance = new AnimationInstance(inst);
 		this.instances.push(animInst);
 		return animInst;
@@ -25,10 +31,10 @@ export class Animation {
 }
 
 class AnimationInstance {
-	AnimationObject: Instance;
+	AnimationObject: Animatable;
 	KeyMap: Map<string, Sequence<AnimatableValue>>;
 
-	constructor(AnimationObject: Instance) {
+	constructor(AnimationObject: Animatable) {
 		this.AnimationObject = AnimationObject;
 		this.KeyMap = new Map();
 	}
@@ -38,7 +44,7 @@ class AnimationInstance {
 	 * @param Key Index to manipulate
 	 * @param Frame Frame number to get
 	 */
-	getValue(Key: string, Frame: number): AnimatableValue | undefined {
+	getValue(Key: InstanceProperties<Animatable>, Frame: number): AnimatableValue {
 		if (!this.KeyMap.has(Key)) { return; }
 		let sequence = this.KeyMap.get(Key)!;
 		let keys = sequence.Keys!;
@@ -68,8 +74,15 @@ class AnimationInstance {
 		if (!leftKey && !rightKey) { return sequence.Default; }
 	}
 
-	setValue(Key: string, Frame: number, Value: AnimatableValue): void {
-		
+	setValue(Key: InstanceProperties<Animatable>, Frame: number, Value: AnimatableValue): void {
+		let assertionValue = (<Animatable>this.AnimationObject)[Key];
+		if (typeOf(assertionValue) === typeOf(Value)) {
+			if (!this.KeyMap.has(Key)) {
+				
+			}
+		} else {
+			throw "Wrong type!";
+		}
 	}
 }
 
@@ -88,5 +101,5 @@ class Key {
 	x2: number = 0.58;
 	y2: number = 1;
 
-	value: any;
+	value?: AnimatableValue;
 }

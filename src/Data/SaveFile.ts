@@ -1,47 +1,51 @@
-import { Animation } from "../Animation/index";
+import { Animation } from "Animation";
 
 /** 
- * A reusable instance for saving purposes.
+ * SaveFormat is the base class for all saving related to Filmmaker. All other
+ * saving formats can and (eventually) *will* be added to this file for use.
+ * Usage should only be through getters and setters.
+ * 
+ * @see DefaultSaveFormat
  */
 interface SaveFormat {
-	/**
-	 * Save current data to an instance for later use.
-	 */
-	save(): Instance;
-	/**
-	 * Set the animation to use for saving.
-	 * @param anim Animation for use
-	 */
-	saveData(anim: Animation): SaveFormat;
-	load(inst: Instance): Animation; 
+	data: Animation;
+	instance: Instance;
+	
+	getData(): Animation;
+	setData(anim: Animation): this;
+	getInst(): Instance; 
+	setInst(inst: Instance): this;
 }
 
 /** 
- * The default Filmmaker save format. 
+ * The default Filmmaker save format. Saves to a group of values.
  */
-class DefaultSaveFormat implements SaveFormat {
-	
-	private data: Animation = new Animation();
-	
-	constructor(inst?: Instance) {
-		if (!inst) { return; }
-		this.load(inst);
+export class DefaultSaveFormat implements SaveFormat {
+	data: Animation = new Animation();
+	instance: Instance = new Instance("Folder");
+
+	constructor();
+	constructor(inst: Instance);
+	constructor(anim: Animation);
+	constructor(obj?: Instance | Animation){
+		if (obj instanceof Animation) {
+
+		} else if (obj instanceof Instance) {
+			
+		}
 	}
 
-	save(): Instance {
-		return new Instance("Part");
+	getData(): Animation {
+		return this.data;
 	}
-	
-	saveData(anim: Animation) {
-		this.data = anim;
+	setData(anim: Animation): this {
+		return this;
+	}
+	getInst(): Instance {
+		return this.instance;
+	}
+	setInst(inst: Instance): this {
 		return this;
 	}
 
-	load(inst: Instance): Animation {
-		let out: Animation = new Animation();
-		return new Animation();
-	}
-
 }
-
-export {}

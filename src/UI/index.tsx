@@ -1,11 +1,22 @@
 import Roact from "@rbxts/roact";
 import { Rigger } from "./Rigger";
+import { CreateBind } from "./KeyBinding";
+
+const NEW_FRAME = CreateBind({
+	actionId: "NEW_FRAME",
+	text: "Create new frame",
+	statusTip: "Create a new keyframe without pressing a GUI button! Yay!"
+}, () => {
+	
+});
+
+const TOOLBAR = plugin.CreateToolbar("Filmmaker");
 
 type AppState = {
-	target: Instance
+	target: Instance;
 }
 
-class App extends Roact.Component<AppState> {
+export class App extends Roact.Component<AppState> {
 
 	constructor(props: AppState) {
 		if (!props.target) {
@@ -20,5 +31,3 @@ class App extends Roact.Component<AppState> {
 				</Roact.Portal>;
 	}
 }
-
-export = App;

@@ -1,12 +1,6 @@
 /// <reference types="@rbxts/types/plugin" />
 
-import { Animation } from "./Animation";
+import { Animation } from "Animation";
+import { App } from "UI";
 
 export {};
-
-const toolbar = plugin.CreateToolbar("MyToolbar");
-const button = toolbar.CreateButton("MyButton", "", "");
-
-button.Click.Connect(() => {
-	print("Button clicked!");
-});
