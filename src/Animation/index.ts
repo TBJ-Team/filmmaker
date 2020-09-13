@@ -1,9 +1,20 @@
 import Easing from "./Easing";
 
+type Overloaded =
+	| CFrame
+	| Vector2
+	| Vector2int16
+	| Vector3
+	| Vector3int16;
+
+type AnimatableValue =
+	| Overloaded
+	| number;
+
 /**
  * All of an animation.
  */
-class Animation {
+export class Animation {
 	instances: AnimationInstance[] = [];
 
 	addInstance(inst: Instance): AnimationInstance {
@@ -15,21 +26,28 @@ class Animation {
 
 class AnimationInstance {
 	AnimationObject: Instance;
-	KeyMap: Map<string, Key[]>;
+	KeyMap: Map<string, Sequence<AnimatableValue>>;
 
 	constructor(AnimationObject: Instance) {
 		this.AnimationObject = AnimationObject;
 		this.KeyMap = new Map();
 	}
 
-	getValue(Key: string, Frame: number) {
-		let sequence = this.KeyMap.get(Key);
+	/**
+	 * Get a usable value for display from an index and a time in frames.
+	 * @param Key Index to manipulate
+	 * @param Frame Frame number to get
+	 */
+	getValue(Key: string, Frame: number): AnimatableValue | undefined {
+		if (!this.KeyMap.has(Key)) { return; }
+		let sequence = this.KeyMap.get(Key)!;
+		let keys = sequence.Keys!;
 		let leftFrame = 0;
 		let leftKey: Key | undefined;
 		let rightFrame = math.huge;
 		let rightKey: Key | undefined;
 		if (!sequence) { return; }
-		sequence.forEach((k: Key, i: number) => {
+		keys.forEach((k: Key, i: number) => {
 			let large: boolean = leftFrame < i && i < Frame;
 			if (large) {
 				leftFrame = i;
@@ -37,7 +55,7 @@ class AnimationInstance {
 			}
 			return large;
 		});
-		sequence.forEach((k: Key, i: number) => {
+		keys.forEach((k: Key, i: number) => {
 			let large: boolean = rightFrame > i && i > Frame;
 			if (large) {
 				rightFrame = i;
@@ -45,9 +63,22 @@ class AnimationInstance {
 			}
 			return large;
 		});
-		if (!leftKey || !rightKey) {
-			
-		}
+		if (!leftKey) { leftKey = rightKey; }
+		if (!rightKey) { rightKey = leftKey; }
+		if (!leftKey && !rightKey) { return sequence.Default; }
+	}
+
+	setValue(Key: string, Frame: number, Value: AnimatableValue): void {
+		
+	}
+}
+
+class Sequence<T> {
+	Default: T;
+	Keys: Key[] = [];
+
+	constructor(Default: T) {
+		this.Default = Default;
 	}
 }
 
@@ -59,5 +90,3 @@ class Key {
 
 	value: any;
 }
-
-export = Animation;

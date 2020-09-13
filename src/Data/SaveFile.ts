@@ -1,4 +1,4 @@
-import Animation from "../Animation/index";
+import { Animation } from "../Animation/index";
 
 /** 
  * A reusable instance for saving purposes.

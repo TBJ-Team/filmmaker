@@ -1,4 +1,5 @@
-import Roact from "@rbxts/roact"
+import Roact from "@rbxts/roact";
+import { Rigger } from "./Rigger";
 
 type AppState = {
 	target: Instance
