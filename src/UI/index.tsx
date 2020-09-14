@@ -7,7 +7,7 @@ const NEW_FRAME = CreateBind({
 	text: "Create new frame",
 	statusTip: "Create a new keyframe without pressing a GUI button! Yay!"
 }, () => {
-	
+
 });
 
 const TOOLBAR = plugin.CreateToolbar("Filmmaker");
@@ -16,7 +16,7 @@ type AppState = {
 	target: Instance;
 }
 
-export class App extends Roact.Component<AppState> {
+export abstract class App extends Roact.Component<AppState> {
 
 	constructor(props: AppState) {
 		if (!props.target) {
@@ -25,9 +25,5 @@ export class App extends Roact.Component<AppState> {
 		super(props);
 	}
 
-	render(): Roact.Element {
-		return 	<Roact.Portal target={this.props.target}>
-					<frame Key="MainFrame" Size={new UDim2(0.5, 0, 0.5, 0)}/>
-				</Roact.Portal>;
-	}
+	abstract render(): Roact.Element;
 }
