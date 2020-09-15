@@ -12,7 +12,6 @@ type Menu = {
 };
 type Seperator = {};
 
-
 function is<T>(val: any, index: keyof T): val is T {
 	return (<T>val)[index] !== undefined;
 }
