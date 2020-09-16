@@ -24,9 +24,9 @@ abstract class SaveFormat {
 	}
 	
 	abstract getData(): Animation;
-	abstract setData(anim: Animation): this;
+	abstract setData(anim: Animation): void;
 	abstract getInst(): Instance; 
-	abstract setInst(inst: Instance): this;
+	abstract setInst(inst: Instance): void;
 }
 
 /** 
@@ -39,14 +39,14 @@ export class DefaultSaveFormat extends SaveFormat {
 	getData(): Animation {
 		return this.data;
 	}
-	setData(anim: Animation): this {
-		return this;
+	setData(anim: Animation): void {
+
 	}
 	getInst(): Instance {
 		return this.instance;
 	}
-	setInst(inst: Instance): this {
-		return this;
+	setInst(inst: Instance): void {
+
 	}
 
 }
@@ -58,14 +58,14 @@ export class RobloxSaveFormat extends SaveFormat {
 	getData(): Animation {
 		return this.data;
 	}
-	setData(anim: Animation): this {
-		return this;
+	setData(anim: Animation): void {
+		
 	}
 	getInst(): Instance {
 		return this.instance;
 	}
-	setInst(inst: Instance): this {
-		return this;
+	setInst(inst: Instance): void {
+
 	}
 
 }

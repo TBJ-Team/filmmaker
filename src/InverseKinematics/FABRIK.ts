@@ -1,4 +1,8 @@
-class IKJoint {
+/**
+ * IKSystem is a glorified array of points that function as a wrapper for the
+ * FABRIK algorithm.
+ */
+export class IKSystem {
 	joints: Vector3[] = [];
 
 	constructor(joints?: Vector3[]) {
@@ -19,6 +23,10 @@ class IKJoint {
 		})
 		return length;
 	}
-}
 
-export {}
+	backwards() {}
+
+	forwards() {
+	
+	}
+}
