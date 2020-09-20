@@ -1,4 +1,5 @@
 import * as Roact from "@rbxts/roact";
+import { FAnimation } from "animation";
 
 const StudioTheme = settings().Studio.Theme;
 const GetColor = (e: Enum.StudioStyleGuideColor) => StudioTheme.GetColor(e);
@@ -10,14 +11,14 @@ const Get = () => {
 	}
 };
 
-type ThemeType = {
+export type ThemeType = {
 	backgroundMain: Color3,
 	buttonMain: Color3,
 	textMain: Color3
 };
 
 export const Theme = Roact.createContext<ThemeType>(Get());
-export const CurrentAnimation = Roact.createContext({});
+export const Animation = Roact.createContext<FAnimation>(new FAnimation());
 
 export class ThemeController extends Roact.Component {
 	

@@ -4,7 +4,7 @@
   "description": "An animation suite for the modern era",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rbxtsc\nrojo build --output Filmmaker.rbxmx"
   },
   "keywords": [],
   "author": "",
