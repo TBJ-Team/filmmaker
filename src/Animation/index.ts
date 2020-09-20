@@ -1,20 +1,12 @@
 import Easing from "./Easing";
 
-type Overloaded =
-	| CFrame
-	| Vector2
-	| Vector2int16
-	| Vector3
-	| Vector3int16;
-
 export type Animatable = 
 	| BasePart
 	| Light
 	| JointInstance;
 
 type AnimatableValue =
-	| Overloaded
-	| number
+	| Tweenable
 	| undefined;
 
 /**
