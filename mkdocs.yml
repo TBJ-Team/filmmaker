@@ -1,13 +1,13 @@
-site_name: Filmmaker Plugin
-site_url: https://tbj-team.github.io/filmmaker-plugin/
-repo_name: TBJ-Team/filmmaker-plugin
-repo_url: https://github.com/TBJ-Team/filmmaker-plugin
+site_name: Filmmaker
+site_url: https://tbj-team.github.io/filmmaker/
+repo_name: TBJ-Team/filmmaker
+repo_url: https://github.com/TBJ-Team/filmmaker
 
 theme:
   name: material
   palette:
-    primary: 'Yellow'
-    accent: 'Yellow'
+    primary: 'Red'
+    accent: 'Red'
 
 nav:
   - Home: index.md
