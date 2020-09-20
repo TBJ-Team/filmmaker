@@ -1,3 +1,0 @@
-local IK = {}
-
-return IK

@@ -1,8 +1,12 @@
 {
-    "name": "Filmmaker",
-    "tree": {
-        "$path": "src"
-
-        
-    }
+	"name": "roblox-ts-model",
+	"tree": {
+		"$path": "out",
+		"include": {
+			"$path": "include",
+			"node_modules": {
+				"$path": "node_modules/@rbxts"
+			}
+		}
+	}
 }

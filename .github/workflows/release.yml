@@ -14,6 +14,19 @@ jobs:
       with:
         submodules: true
 
+    - name: Use Node.js 12
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+
+    - name: Install roblox-ts
+      run: |
+        npm install -g roblox-ts
+
+    - name: Compile typescript
+      run: |
+        rbxtsc
+
     - uses: Roblox/setup-foreman@v1
       with:
         version: "^1.0.0"
