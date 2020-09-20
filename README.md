@@ -9,7 +9,7 @@
 </div>
 <br>
 
-The plugin version of Filmmaker. All information about the plugin and standalone game can be found on [TBJ-Team/Filmmaker](https://github.com/TBJ-Team/filmmaker). 
+The plugin version of Filmmaker. 
 
 To build and run Filmmaker as a plugin: 
 ```
