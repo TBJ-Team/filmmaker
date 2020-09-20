@@ -12,6 +12,7 @@ enum RigType {
  */
 export abstract class Rig {
 	type: RigType;
+	model?: Model;
 
 	/**
 	 * A base constructor for the rig class.
@@ -20,9 +21,9 @@ export abstract class Rig {
 	constructor(rigType: RigType = RigType.R15) {
 		this.type = rigType;
 	}
-	
-	abstract save(): Instance;
-	abstract load(): void;
+
+	abstract async load(): Promise<Model>;
+	abstract get(): Model | undefined;
 }
 
 export class FBXRig extends Rig {
@@ -35,28 +36,38 @@ export class FBXRig extends Rig {
 		super(rigType);
 	}
 
-	save(): Instance {
-		throw "Method not implemented.";
-	}
-
-	load(): void {
+	async load(): Promise<Model> {
 		let rig = plugin.ImportFbxRig(this.type === RigType.R15);
 		rig.Parent = undefined;
 		if (!rig.FindFirstChildWhichIsA("Motor6D", true)) {
-
+			throw "Failed to import rig correctly! Did you import a Roblox rig?";
 		}
+		return rig;
+	}
+
+	get(): Model | undefined {
+		if (!this.model) {
+			const [success, data] = this.load()
+				.catch(e => warn("Failed to load model! %s".format(e as string)))
+				.await();
+			if (success) {
+				this.model = data as Model;
+				return data as Model;
+			} else {
+				warn("Model import failure! Possibly fatal! %s".format(data as string));
+				return undefined;
+			}
+		}
+		return this.model;
 	}
 }
 
-export class GeneratedRig extends Rig {
+// export class GeneratedRig extends Rig {
 
-	save(): Instance {
-		throw "Method not implemented.";
-	}
+// 	load(): Promise<Model> {
+// 	}
+// 	get(): Model | undefined {
+// 	}
 
-	load(): void {
-		
 
-	}
-
-}
+// }

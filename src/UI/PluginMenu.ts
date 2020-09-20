@@ -16,6 +16,9 @@ function is<T>(val: any, index: keyof T): val is T {
 	return (<T>val)[index] !== undefined;
 }
 
+/**
+ * A PluginMenu is an easy way to create right-click actions using a type-based system.
+ */
 export class PluginMenu {
 
 	private callbackMap: Map<string, () => void> = new Map();
