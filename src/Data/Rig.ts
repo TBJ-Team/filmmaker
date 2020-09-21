@@ -1,3 +1,7 @@
+import { Globals } from "globals";
+
+const plugin = Globals.plugin;
+
 enum RigType {
 	R6 = 1,
 	R15 = 2,
