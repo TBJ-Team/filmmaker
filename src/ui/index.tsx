@@ -8,4 +8,4 @@ const graphEditor = new DockWidgetPluginGuiInfo(Enum.InitialDockState.Bottom, tr
 const widget = plugin.CreateDockWidgetPluginGui("GraphEditor", graphEditor);
 widget.Title = "Graph Editor";
 
-Roact.mount(<GraphEditor/>, widget);
+export const GraphEditorMount = Roact.mount(<GraphEditor/>, widget);

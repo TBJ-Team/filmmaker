@@ -2,6 +2,7 @@
 
 interface Globals {
 	plugin: Plugin;
+	settings: () => GlobalSettings;
 }
 
 export const Globals: Globals = {} as Globals;

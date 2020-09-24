@@ -1,5 +1,8 @@
 import * as Roact from "@rbxts/roact";
 import { FAnimation } from "animation";
+import { Globals } from "globals";
+
+const settings = Globals.settings;
 
 const StudioTheme = settings().Studio.Theme;
 const GetColor = (e: Enum.StudioStyleGuideColor) => StudioTheme.GetColor(e);
@@ -20,10 +23,10 @@ export type ThemeType = {
 export const Theme = Roact.createContext<ThemeType>(Get());
 export const Animation = Roact.createContext<FAnimation>(new FAnimation());
 
-export class ThemeController extends Roact.Component {
-	
-	public render(): Roact.Element | undefined {
-		return <Theme.Provider value={Get()}/>
-	}
+export function withTheme(callback: (t: ThemeType) => Roact.Element) {
+	return <Theme.Consumer render={a => callback(a)}/>
+}
 
+export function ThemeController(): Roact.Element {
+	return <Theme.Provider value={Get()}/>
 }
