@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/filmmaker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/thread.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/RuntimeLib.lua" beforeDir="false" afterPath="$PROJECT_DIR$/include/RuntimeLib.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Animation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PluginMenu.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Rigger/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/animation/keying.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/keying.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/globals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ik/fabrik.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/fabrik.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/graphEditor/graph.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/graphEditor/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/keyBind.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/utils.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jGFOrRX2RjuwDNV9KkQGameVQN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/math" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Build" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="" />
+      <created>1603422492551</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603422492551</updated>
+      <workItem from="1603422493678" duration="483000" />
+      <workItem from="1603422993352" duration="2762000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603422603689">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603422603689" />
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1603428513636">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513636" />
+    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1603428513635">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
+    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1603428513635">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
+    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1603428513635">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
+  </component>
+</project>

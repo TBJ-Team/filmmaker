@@ -5,4 +5,4 @@ interface Globals {
 	settings: () => GlobalSettings;
 }
 
-export const Globals: Globals = {} as Globals;
+export const Globals: Globals = { plugin: plugin, settings: settings };

@@ -1,6 +1,33 @@
-import { Rig } from "data/rig";
-import "@rbxts/cubic-bezier";
 import Bezier from "@rbxts/cubic-bezier";
+
+export class MatrixStack {
+
+	private stack: CFrame[] = [ new CFrame() ];
+
+	public translate(x: number | CFrame, y: number, z: number): void {
+		if (typeIs(x, "CFrame")) {
+			this.stack[this.stack.size() - 1] = this.peek().mul(<CFrame> x);
+			return;
+		}
+		this.stack[this.stack.size() - 1] = this.peek().mul(new CFrame(x, y, z));
+	}
+
+	public push(): void {
+		this.stack.push(new CFrame().mul(this.peek()));
+	}
+
+	public peek(): CFrame {
+		return this.stack[this.stack.size() - 1];
+	}
+
+	public pop(): void {
+		this.stack.pop();
+	}
+
+	public isEmpty(): boolean {
+		return this.stack.size() === 1;
+	}
+}
 
 export class FKeyframe {
 

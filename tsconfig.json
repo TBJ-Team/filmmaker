@@ -2,9 +2,9 @@
 	"compilerOptions": {
 		// required
 		"allowSyntheticDefaultImports": true,
-		"isolatedModules": true,
 		"downlevelIteration": true,
 		"module": "commonjs",
+		"moduleResolution": "node",
 		"noLib": true,
 		"strict": true,
 		"target": "es6",
