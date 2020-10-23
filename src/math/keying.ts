@@ -29,9 +29,14 @@ export class MatrixStack {
 	}
 }
 
+export class FAnimation {
+
+
+}
+
 export class FKeyframe {
 
-	private poses: FPose[] = new Array();
+	private poses: FPose[] = [];
 	private time: number = 0;
 
 	add(value: CFrame, limb: Motor6D) {
