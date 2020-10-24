@@ -1,4 +1,5 @@
-import { FAnimation } from "animation";
+
+import {FAnimation} from "../math/keying";
 
 /**
  * Save is the base class that most saving and loading from Instances in the current

@@ -37,7 +37,7 @@ export class CrashReport {
 	}
 
 	private static comment(): string {
-		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size())] || "This comment shouldn't exist!";
+		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size())] || "If you see this, start running.";
 	}
 
 	private put() {
