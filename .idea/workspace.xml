@@ -19,13 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="Migrate to idea, remove redundant code">
+    <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/crash.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filmmaker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/filmmaker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.server.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math/keying.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/keying.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Animation/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/thread.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/thread.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jGFOrRX2RjuwDNV9KkQGameVQN" />
@@ -58,6 +61,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -88,7 +92,8 @@
       <updated>1603422492551</updated>
       <workItem from="1603422493678" duration="483000" />
       <workItem from="1603422993352" duration="2762000" />
-      <workItem from="1603468483478" duration="2156000" />
+      <workItem from="1603468483478" duration="3092000" />
+      <workItem from="1603499316160" duration="7442000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate to idea, remove redundant code">
       <created>1603468523705</created>
@@ -97,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603468523705</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="More centralizing">
+      <created>1603484753319</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603484753319</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Migrate to idea, remove redundant code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrate to idea, remove redundant code" />
+    <MESSAGE value="More centralizing" />
+    <option name="LAST_COMMIT_MESSAGE" value="More centralizing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603422603689">
@@ -144,5 +157,17 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
+    <state x="469" y="162" key="SettingsEditor" timestamp="1603484814107">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="469" y="162" key="SettingsEditor/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603484814107" />
+    <state x="798" y="399" key="VCS.EditChangelistDialog" timestamp="1603484699263">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="798" y="399" key="VCS.EditChangelistDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603484699263" />
+    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1603507408753">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603507408753" />
   </component>
 </project>

@@ -1,5 +1,7 @@
 export type Runnable = (...args: any[]) => void;
 
+export const THREAD_MAP: Map<thread, string> = new Map<thread, string>();
+
 /**
  * ThreadExecutor is used to execute Runnables on a specific thread
  */
@@ -11,6 +13,7 @@ export abstract class Executor<T extends Runnable> {
 
 	protected constructor(name: string) {
 		this.name = name;
+		THREAD_MAP.set(this.getThread(), name);
 	}
 
 	public abstract getThread(): thread;
