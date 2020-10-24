@@ -13,7 +13,14 @@ export abstract class Executor<T extends Runnable> {
 
 	protected constructor(name: string) {
 		this.name = name;
-		THREAD_MAP.set(this.getThread(), name);
+	}
+
+	/**
+	 * Allows your Executor to be recognized by the crash logs.
+	 * @protected
+	 */
+	protected register() {
+		THREAD_MAP.set(this.getThread(), this.name);
 	}
 
 	public abstract getThread(): thread;

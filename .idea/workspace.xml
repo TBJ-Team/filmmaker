@@ -20,9 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/crash.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animation/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/Rig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/Rig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filmmaker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/filmmaker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/globals.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/crash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/crash.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/thread.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/thread.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +98,7 @@
       <workItem from="1603422493678" duration="483000" />
       <workItem from="1603422993352" duration="2762000" />
       <workItem from="1603468483478" duration="3092000" />
-      <workItem from="1603499316160" duration="7442000" />
+      <workItem from="1603499316160" duration="9837000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate to idea, remove redundant code">
       <created>1603468523705</created>
@@ -109,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603484753319</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add crash reports!&#10;&#10;Because this is important.">
+      <created>1603509286224</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603509286224</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +142,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Migrate to idea, remove redundant code" />
     <MESSAGE value="More centralizing" />
-    <option name="LAST_COMMIT_MESSAGE" value="More centralizing" />
+    <MESSAGE value="Add crash reports!" />
+    <MESSAGE value="Add crash reports!&#10;&#10;Because this is important." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add crash reports!&#10;&#10;Because this is important." />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603422603689">
@@ -141,22 +155,30 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603468906014" />
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1603428513636">
+    <state x="698" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603509329683">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513636" />
-    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1603428513635">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="698" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603509329683" />
+    <state width="1419" height="271" key="GridCell.Tab.0.bottom" timestamp="1603511299170">
+      <screen x="1920" y="129" width="1440" height="877" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
-    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1603428513635">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
+    <state width="1419" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299170" />
+    <state width="1419" height="271" key="GridCell.Tab.0.center" timestamp="1603511299169">
+      <screen x="1920" y="129" width="1440" height="877" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
-    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1603428513635">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
+    <state width="1419" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
+    <state width="1419" height="271" key="GridCell.Tab.0.left" timestamp="1603511299169">
+      <screen x="1920" y="129" width="1440" height="877" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603428513635" />
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385587" />
+    <state width="1419" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
+    <state width="1419" height="271" key="GridCell.Tab.0.right" timestamp="1603511299169">
+      <screen x="1920" y="129" width="1440" height="877" />
+    </state>
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
+    <state width="1419" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
     <state x="469" y="162" key="SettingsEditor" timestamp="1603484814107">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>

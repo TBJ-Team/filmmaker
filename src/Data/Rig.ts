@@ -1,6 +1,7 @@
-import { Globals } from "globals";
+import {FilmmakerClient} from "../filmmaker";
+import {CrashReport, CrashSeverity} from "../utils/crash";
 
-const plugin = Globals.plugin;
+const plugin = FilmmakerClient.plugin;
 
 enum RigType {
 	R6 = 1,
@@ -44,6 +45,7 @@ export class FBXRig extends Rig {
 		let rig = plugin.ImportFbxRig(this.type === RigType.R15);
 		rig.Parent = undefined;
 		if (!rig.FindFirstChildWhichIsA("Motor6D", true)) {
+			new CrashReport("Failed to import rig!", CrashSeverity.MINOR).log();
 			throw "Failed to import rig correctly! Did you import a Roblox rig?";
 		}
 		return rig;
@@ -52,13 +54,17 @@ export class FBXRig extends Rig {
 	get(): Model | undefined {
 		if (!this.model) {
 			const [success, data] = this.load()
-				.catch(e => warn("Failed to load model! %s".format(e as string)))
+				.catch(e => {
+					warn("Failed to load model! %s".format(e as string))
+					new CrashReport("Failed to load model! %s".format(e as string), CrashSeverity.MINOR).log();
+				})
 				.await();
 			if (success) {
 				this.model = data as Model;
 				return data as Model;
 			} else {
 				warn("Model import failure! Possibly fatal! %s".format(data as string));
+				new CrashReport("Model import failure: %s".format(data as string), CrashSeverity.MINOR).log();
 				return undefined;
 			}
 		}

@@ -1,5 +1,5 @@
 {
-  "name": "filmmaker-plugin",
+  "name": "filmmaker",
   "version": "1.0.0",
   "description": "An animation suite for the modern era",
   "main": "index.js",

@@ -1,4 +1,4 @@
-import { Executor, Runnable } from "./utils/thread";
+import {Executor, Runnable, THREAD_MAP} from "./utils/thread";
 import { RunService } from "@rbxts/services";
 
 
@@ -10,11 +10,14 @@ export class FilmmakerClient extends Executor<Runnable> {
 
 	public constructor() {
 		super("Animation Executor");
+		THREAD_MAP.set(coroutine.running(), "Main Thread")
 		this.start();
+		this.register();
 	}
 
 	public stop() {
 		this.stopped = true;
+		this.cancel();
 	}
 
 	protected createThread() {

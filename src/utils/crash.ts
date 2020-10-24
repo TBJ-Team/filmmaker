@@ -1,8 +1,14 @@
-import { ServerScriptService, Stats } from "@rbxts/services";
+import { ServerStorage, Stats } from "@rbxts/services";
 import { FilmmakerClient } from "../filmmaker";
 import { THREAD_MAP } from "./thread";
 
-export const LOGS_FOLDER: Folder = new Instance("Folder", ServerScriptService);
+function round2(num: number, numDecimalPlaces: number = 0) {
+	return tonumber(("%." + (numDecimalPlaces) + "f").format(num));
+}
+
+
+export const LOGS_FOLDER: Folder = new Instance("Folder", ServerStorage);
+LOGS_FOLDER.Name = "Filmmaker Crash Logs"
 
 export enum CrashSeverity {
 	FATAL = "!! WARNING: FATAL CRASH !! SUBMIT A BUG REPORT!",
@@ -22,6 +28,8 @@ export class CrashReport {
 	private readonly cause: any;
 	private readonly dataSet: Map<string, string> = new Map<string, string>();
 
+	private logFile?: ModuleScript = undefined;
+
 	public constructor(cause: any, severity: string = CrashSeverity.FATAL) {
 		this.cause = cause;
 		this.severity = severity;
@@ -29,34 +37,46 @@ export class CrashReport {
 	}
 
 	private static comment(): string {
-		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size())] || "No comment found!";
+		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size())] || "This comment shouldn't exist!";
 	}
 
 	private put() {
+		// i know it looks wretched but its the power of trial and error
 		this.dataSet.set("Filmmaker Version", PKG_VERSION);
-		this.dataSet.set("Instance Count", tostring(Stats.InstanceCount));
-		this.dataSet.set("Heartbeat", tostring(Stats.HeartbeatTimeMs));
-		this.dataSet.set("Memory Usage", collectgarbage("count") + " KB");
-		this.dataSet.set("Cause", tostring(this.cause));
-		this.dataSet.set("Severity", this.severity)
-		this.dataSet.set("Thread", THREAD_MAP.get(coroutine.running()) || "<UNKNOWN>");
-		this.dataSet.set("Exit Code", "66");
+		this.dataSet.set("Instance Count\t", tostring(Stats.InstanceCount));
+		this.dataSet.set("Heartbeat\t\t", round2(Stats.HeartbeatTimeMs, 2) + " ms");
+		this.dataSet.set("Memory Usage\t", collectgarbage("count") + " KB");
+		this.dataSet.set("Cause\t\t\t", tostring(this.cause));
+		this.dataSet.set("Severity\t\t", this.severity)
+		this.dataSet.set("Thread\t\t\t", THREAD_MAP.get(coroutine.running()) || "<UNKNOWN>");
+		this.dataSet.set("Time\t\t\t", os.date("%c"));
+		this.dataSet.set("Exit Code\t\t", "66");
 	}
 
 	public toString(): string {
 		let str = "--[[\n";
 		str += " * " + CrashReport.comment();
 		str += "\n\n";
-		this.dataSet.entries().forEach(([key, value]) => {
+		this.dataSet.forEach((value, key) => {
 			str += `${key}\t\t${value}\n`
 		});
-		str += `\n${debug.traceback()}\n\n]]`
+		str += "\nStacktrace:\n\n";
+		str += `${debug.traceback(undefined, 4)}\n\n]]`;
 		return str;
 	}
 
-	public openScript(): ModuleScript {
+	public log(): ModuleScript {
+		if (this.logFile) {
+			return this.logFile;
+		}
 		let out = new Instance("ModuleScript", LOGS_FOLDER);
+		out.Name = os.date("CRASH LOG - %c");
 		out.Source = this.toString();
+		return out;
+	}
+
+	public open(): ModuleScript {
+		let out = this.log();
 		FilmmakerClient.plugin.OpenScript(out);
 		return out;
 	}
