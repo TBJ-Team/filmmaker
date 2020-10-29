@@ -13,6 +13,9 @@ nav:
   - Home: index.md
   - Guide:
     - Basic Animation: guide/b_animation.md
+  - Contributing:
+    - Code Contributions: contributing/contributing.md
+    - Animation Contributions: contributing/animations.md
 
 markdown_extensions:
   - admonition

@@ -19,14 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="">
+    <list default="true" id="bf096558-aebd-4a6e-ad23-04408c7065e4" name="Default Changelist" comment="Add some docs">
+      <change afterPath="$PROJECT_DIR$/docs/contributing/animations.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/contributing/contributing.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/globals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/ui.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/guide/b_animation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/guide/b_animation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mkdocs.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/Rig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/Rig.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filmmaker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/filmmaker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/globals.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.server.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/crash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/crash.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/thread.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/thread.ts" afterDir="false" />
     </list>
@@ -66,7 +71,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -75,8 +80,21 @@
       <recent name="$PROJECT_DIR$/src/math" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Build" type="js.build_tools.npm">
+  <component name="RunManager" selected="Shell Script.Build">
+    <configuration name="Build" type="ShConfigurationType">
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/build.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Build Locally" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -86,6 +104,10 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.Build Locally" />
+      <item itemvalue="Shell Script.Build" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -98,7 +120,10 @@
       <workItem from="1603422493678" duration="483000" />
       <workItem from="1603422993352" duration="2762000" />
       <workItem from="1603468483478" duration="3092000" />
-      <workItem from="1603499316160" duration="9837000" />
+      <workItem from="1603499316160" duration="18496000" />
+      <workItem from="1603565483024" duration="70000" />
+      <workItem from="1603575549534" duration="808000" />
+      <workItem from="1603899065679" duration="912000" />
     </task>
     <task id="LOCAL-00001" summary="Migrate to idea, remove redundant code">
       <created>1603468523705</created>
@@ -121,7 +146,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603509286224</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="More crash report shenannigans&#10;&#10;DO NOT PUBLISH THIS! PLEASE, FOR THE LOVE OF ALL THAT IS HOLY, DO NOT PUBLISH A RELEASE FOR THIS! THIS COULD LITERALLY BREAK EVERYTHING!">
+      <created>1603511517897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603511517897</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add some docs">
+      <created>1603511705736</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603511705736</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,52 +183,62 @@
     <MESSAGE value="More centralizing" />
     <MESSAGE value="Add crash reports!" />
     <MESSAGE value="Add crash reports!&#10;&#10;Because this is important." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add crash reports!&#10;&#10;Because this is important." />
+    <MESSAGE value="More crash report shenannigans&#10;&#10;DO NOT PUBLISH THIS! PLEASE, FOR THE LOVE OF ALL THAT IS HOLY, DO NOT PUBLISH A RELEASE FOR THIS! THIS COULD LITERALLY BREAK EVERYTHING!" />
+    <MESSAGE value="Add some docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some docs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603422603689">
+    <state x="424" y="185" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603558116501">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state x="424" y="185" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603422603689" />
-    <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1603468906014">
+    <state x="424" y="185" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603558116501" />
+    <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1603559935709">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603468906014" />
+    <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603559935709" />
     <state x="698" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603509329683">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="698" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603509329683" />
-    <state width="1419" height="271" key="GridCell.Tab.0.bottom" timestamp="1603511299170">
-      <screen x="1920" y="129" width="1440" height="877" />
-    </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
-    <state width="1419" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299170" />
-    <state width="1419" height="271" key="GridCell.Tab.0.center" timestamp="1603511299169">
-      <screen x="1920" y="129" width="1440" height="877" />
-    </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
-    <state width="1419" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
-    <state width="1419" height="271" key="GridCell.Tab.0.left" timestamp="1603511299169">
-      <screen x="1920" y="129" width="1440" height="877" />
-    </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385587" />
-    <state width="1419" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
-    <state width="1419" height="271" key="GridCell.Tab.0.right" timestamp="1603511299169">
-      <screen x="1920" y="129" width="1440" height="877" />
-    </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603510385588" />
-    <state width="1419" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511299169" />
-    <state x="469" y="162" key="SettingsEditor" timestamp="1603484814107">
+    <state width="1899" height="317" key="GridCell.Tab.0.bottom" timestamp="1603565419808">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state x="469" y="162" key="SettingsEditor/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603484814107" />
+    <state width="1899" height="317" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603565419808" />
+    <state width="1419" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511519767" />
+    <state width="1899" height="317" key="GridCell.Tab.0.center" timestamp="1603565419808">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="317" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603565419808" />
+    <state width="1419" height="271" key="GridCell.Tab.0.center/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511519766" />
+    <state width="1899" height="317" key="GridCell.Tab.0.left" timestamp="1603565419796">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="317" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603565419796" />
+    <state width="1419" height="271" key="GridCell.Tab.0.left/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511519766" />
+    <state width="1899" height="317" key="GridCell.Tab.0.right" timestamp="1603565419808">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state width="1899" height="317" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603565419808" />
+    <state width="1419" height="271" key="GridCell.Tab.0.right/0.23.1920.1000/1920.129.1440.877@1920.129.1440.877" timestamp="1603511519766" />
+    <state x="747" y="232" key="RollbackChangesDialog" timestamp="1603558016549">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="747" y="232" key="RollbackChangesDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603558016549" />
+    <state x="469" y="162" key="SettingsEditor" timestamp="1603562055923">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="469" y="162" key="SettingsEditor/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603562055923" />
     <state x="798" y="399" key="VCS.EditChangelistDialog" timestamp="1603484699263">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="798" y="399" key="VCS.EditChangelistDialog/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603484699263" />
-    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1603507408753">
+    <state x="625" y="241" key="run.anything.popup" timestamp="1603555437717">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603507408753" />
+    <state x="625" y="241" key="run.anything.popup/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603555437717" />
+    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup" timestamp="1603561058990">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="625" y="244" width="670" height="676" key="search.everywhere.popup/0.23.1920.1000/1920.129.1440.877@0.23.1920.1000" timestamp="1603561058990" />
   </component>
 </project>

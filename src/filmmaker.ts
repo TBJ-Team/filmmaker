@@ -1,18 +1,16 @@
-import {Executor, Runnable, THREAD_MAP} from "./utils/thread";
-import { RunService } from "@rbxts/services";
+import {TaskScheduler, Runnable, THREAD_MAP} from "./utils/thread";
 
+/**
+ * Easy implementation for a TaskScheduler
+ */
+export class Scheduler extends TaskScheduler<Runnable> {
 
-export class FilmmakerClient extends Executor<Runnable> {
-	public static plugin: Plugin;
-
-	private readonly thread: thread = this.createThread();
+	private thread: thread = this.createThread();
 	private stopped: boolean = false;
 
-	public constructor() {
-		super("Animation Executor");
-		THREAD_MAP.set(coroutine.running(), "Main Thread")
+	public constructor(name: string) {
+		super(name);
 		this.start();
-		this.register();
 	}
 
 	public stop() {
@@ -21,11 +19,12 @@ export class FilmmakerClient extends Executor<Runnable> {
 	}
 
 	protected createThread() {
-		return coroutine.create(() => this.waitUntilStopped());
-	}
-
-	protected wait() {
-		RunService.Stepped.Wait();
+		let out = coroutine.create(() => this.waitUntilStopped());
+		if (this.thread) {
+			THREAD_MAP.delete(this.thread);
+		}
+		THREAD_MAP.set(out, this.name);
+		return out;
 	}
 
 	protected waitUntilStopped() {
@@ -36,5 +35,12 @@ export class FilmmakerClient extends Executor<Runnable> {
 
 	getThread(): thread {
 		return this.thread;
+	}
+
+	start(): void {
+		this.stopped = false;
+		// if the current thread is dead then create a new one
+		this.thread = coroutine.status(this.thread) !== "dead" ? this.thread : this.createThread();
+		coroutine.resume(this.thread);
 	}
 }
