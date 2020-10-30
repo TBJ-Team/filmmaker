@@ -3,6 +3,7 @@
 		// required
 		"allowSyntheticDefaultImports": true,
 		"downlevelIteration": true,
+		"resolveJsonModule": true,
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"noLib": true,
@@ -20,6 +21,7 @@
 
 		// optional, non-configurable
 		"jsx": "react",
-		"jsxFactory": "Roact.createElement"
+		"jsxFactory": "Roact.createElement",
+		"jsxFragmentFactory": ""
 	}
 }

@@ -1,9 +1,10 @@
 /// <reference types="@rbxts/types/plugin" />
 
-import {Scheduler} from "filmmaker";
-import {CrashReport} from "utils/crash";
-import {THREAD_MAP} from "utils/thread";
-import {Globals, Schedulers} from "globals";
+import { Scheduler } from "filmmaker";
+import { THREAD_MAP } from "utils/thread";
+import { Globals, Schedulers } from "globals";
+import * as Roact from "@rbxts/roact";
+import {GraphEditor} from "./ui";
 
 Globals.plugin = plugin;
 THREAD_MAP.set(coroutine.running(), "Main Thread");
@@ -14,12 +15,6 @@ Schedulers.ANIMATION = animationScheduler;
 let uiScheduler = new Scheduler("UI Thread");
 Schedulers.UI = uiScheduler;
 
-animationScheduler.execute(() => {
-	new CrashReport("wtf").open();
-	animationScheduler.stop();
-});
-
 uiScheduler.execute(() => {
-	new CrashReport("test").open();
-	uiScheduler.stop();
+	Roact.mount(Roact.createElement(GraphEditor, {}))
 });

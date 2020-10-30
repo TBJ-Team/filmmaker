@@ -1,6 +1,8 @@
 import { ServerStorage, Stats } from "@rbxts/services";
 import { THREAD_MAP } from "./thread";
-import {Globals} from "../globals";
+import { Globals } from "../globals";
+
+import config from "utils/crash_config.json";
 
 function round2(num: number, numDecimalPlaces: number = 0) {
 	return tonumber(("%." + (numDecimalPlaces) + "f").format(num));
@@ -13,15 +15,7 @@ LOGS_FOLDER.Name = "Filmmaker Crash Logs";
 
 export class CrashReport {
 
-	private static readonly COMMENTS: string[] = ["That was intended. No, seriously. That was meant to happen.",
-		"Oops!", "Pop the champagne! Oh.", "Crud.", "Check out our sister game, Flimmaker!", "Calculated.", "Boo!",
-		"Filmmaker was filmed in front of a live studio audience. Nobody laughed, but they were there.", "Surprise!",
-		"Beam me up, Roblox Studio.", "Anyway, here's Wonderwall.", "Oh, fiddlesticks. What now?", "Crash 2: Episode 2",
-		"This is a ticket for 1 free restraining order against your nearest Mojangsta: [~~RESTRAINING ORDER~~]",
-		"Ouch.", "Never gonna give you up. Until now.", "Hello!", "Did I do well?", "All your Studio belong to us",
-		"Don't panic! Alright? Stop panicking! I can still stop this. Oh. There's a password.", "Uhm. A...A...A? Nope?",
-		"Witty comment available :)", "Ooh, shiny!", "Sir - mint cookies or graham crackers?", "I'm hurting, Dr. Studio",
-		"Does not use Java!", "War ich das?"];
+	private static readonly COMMENTS: string[] = config.comments;
 
 	private readonly cause: any;
 	private readonly dataSet: Map<string, string> = new Map<string, string>();
@@ -33,9 +27,14 @@ export class CrashReport {
 		this.put();
 	}
 
+	public static openCause(cause: any) {
+		let report = new CrashReport(cause);
+		report.open();
+		return report;
+	}
+
 	private static comment(): string {
-		// DONTFIX: SOMETIMES RETURNS "If you see this, start running." THIS IS INTENDED BEHAVIOR.
-		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size())] || "If you see this, start running.";
+		return CrashReport.COMMENTS[math.random(CrashReport.COMMENTS.size() - 1)];
 	}
 
 	private put() {
@@ -68,7 +67,9 @@ export class CrashReport {
 			return this.logFile;
 		}
 		let out = new Instance("ModuleScript", LOGS_FOLDER);
-		out.Name = os.date("CRASH LOG - %c");
+		// TODO: wtf
+		// @ts-ignore
+		out.Name = os.date(config.format);
 		out.Source = this.toString();
 		return out;
 	}
