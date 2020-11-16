@@ -4,7 +4,6 @@ import { Scheduler } from "filmmaker";
 import { THREAD_MAP } from "utils/thread";
 import { Globals, Schedulers } from "globals";
 import * as Roact from "@rbxts/roact";
-import {GraphEditor} from "./ui";
 
 Globals.plugin = plugin;
 THREAD_MAP.set(coroutine.running(), "Main Thread");
@@ -14,7 +13,8 @@ Schedulers.ANIMATION = animationScheduler;
 
 let uiScheduler = new Scheduler("UI Thread");
 Schedulers.UI = uiScheduler;
+print("Hallo von main Faden!");
 
 uiScheduler.execute(() => {
-	Roact.mount(Roact.createElement(GraphEditor, {}))
+
 });

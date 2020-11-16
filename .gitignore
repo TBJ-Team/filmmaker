@@ -1,5 +1,8 @@
 .DS_Store
 /out
 /node_modules
+/include
 Filmmaker.rbxmx
 /build.sh
+
+.idea

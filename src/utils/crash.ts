@@ -67,9 +67,7 @@ export class CrashReport {
 			return this.logFile;
 		}
 		let out = new Instance("ModuleScript", LOGS_FOLDER);
-		// TODO: wtf
-		// @ts-ignore
-		out.Name = os.date(config.format);
+		out.Name = <string>os.date(config.format);
 		out.Source = this.toString();
 		return out;
 	}
