@@ -1,11 +1,11 @@
 import { ServerStorage, Stats } from "@rbxts/services";
 import { THREAD_MAP } from "./thread";
-import { Globals } from "../globals";
+import { Globals } from "./globals";
 
-import config from "utils/crash_config.json";
+import config from "crash_config.json";
 
-function round2(num: number, numDecimalPlaces: number = 0) {
-	return tonumber(("%." + (numDecimalPlaces) + "f").format(num));
+function round2(num: number, numDecimalPlaces = 0) {
+	return tonumber(("%." + numDecimalPlaces + "f").format(num));
 }
 
 export declare const gcinfo: () => number;
@@ -14,21 +14,20 @@ export const LOGS_FOLDER: Folder = new Instance("Folder", ServerStorage);
 LOGS_FOLDER.Name = "Filmmaker Crash Logs";
 
 export class CrashReport {
-
 	private static readonly COMMENTS: string[] = config.comments;
 
-	private readonly cause: any;
+	private readonly cause: unknown;
 	private readonly dataSet: Map<string, string> = new Map<string, string>();
 
 	private logFile?: ModuleScript = undefined;
 
-	public constructor(cause: any) {
+	public constructor(cause: unknown) {
 		this.cause = cause;
 		this.put();
 	}
 
-	public static openCause(cause: any) {
-		let report = new CrashReport(cause);
+	public static openCause(cause: unknown) {
+		const report = new CrashReport(cause);
 		report.open();
 		return report;
 	}
@@ -55,7 +54,7 @@ export class CrashReport {
 		str += "Filmmaker has crashed!\nIf you wanna report this, please submit a Github issue @ GyroLabs/Filmmaker";
 		str += "\n\n";
 		this.dataSet.forEach((value, key) => {
-			str += `${key}\t\t${value}\n`
+			str += `${key}\t\t${value}\n`;
 		});
 		str += "\nStacktrace:\n\n";
 		str += `${debug.traceback(undefined, 4)}\n\n]]`;
@@ -66,14 +65,14 @@ export class CrashReport {
 		if (this.logFile) {
 			return this.logFile;
 		}
-		let out = new Instance("ModuleScript", LOGS_FOLDER);
+		const out = new Instance("ModuleScript", LOGS_FOLDER);
 		out.Name = <string>os.date(config.format);
 		out.Source = this.toString();
 		return out;
 	}
 
 	public open(): ModuleScript {
-		let out = this.log();
+		const out = this.log();
 		Globals.plugin.OpenScript(out);
 		return out;
 	}

@@ -1,12 +1,11 @@
-import {TaskScheduler, Runnable, THREAD_MAP} from "./utils/thread";
+import { TaskScheduler, Runnable, THREAD_MAP } from "./thread";
 
 /**
  * Easy implementation for a TaskScheduler
  */
 export class Scheduler extends TaskScheduler<Runnable> {
-
 	private thread: thread = this.createThread();
-	private stopped: boolean = false;
+	private stopped = false;
 
 	public constructor(name: string) {
 		super(name);
@@ -19,7 +18,7 @@ export class Scheduler extends TaskScheduler<Runnable> {
 	}
 
 	protected createThread() {
-		let out = coroutine.create(() => this.waitUntilStopped());
+		const out = coroutine.create(() => this.waitUntilStopped());
 		if (this.thread) {
 			THREAD_MAP.delete(this.thread);
 		}
