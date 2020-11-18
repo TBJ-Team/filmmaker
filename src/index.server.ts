@@ -4,6 +4,8 @@ import { Scheduler } from "filmmaker";
 import { THREAD_MAP } from "thread";
 import { Globals, Schedulers } from "globals";
 import * as Roact from "@rbxts/roact";
+import { Animation } from "./keying";
+import { Workspace } from "@rbxts/services";
 
 Globals.plugin = plugin;
 THREAD_MAP.set(coroutine.running(), "Main Thread");
@@ -13,5 +15,7 @@ Schedulers.ANIMATION = animationScheduler;
 
 const uiScheduler = new Scheduler("UI Thread");
 Schedulers.UI = uiScheduler;
+
+new Animation(Workspace);
 
 uiScheduler.execute(() => {});

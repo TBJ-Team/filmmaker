@@ -1,12 +1,11 @@
 export const THREAD_MAP: Map<thread, string> = new Map<thread, string>();
 
-export type Runnable = (...args: any[]) => void;
+export type Runnable = (...args: unknown[]) => void;
 
 export abstract class TaskScheduler<T extends Runnable> {
-
 	protected stack: T[] = [];
 	protected readonly name: string;
-	protected executions: number = 0;
+	protected executions = 0;
 
 	protected constructor(name: string) {
 		this.name = name;
@@ -37,7 +36,7 @@ export abstract class TaskScheduler<T extends Runnable> {
 	public runTasks(stopCondition: () => boolean): void {
 		this.executions++;
 		try {
-			while (!(stopCondition())) {
+			while (!stopCondition()) {
 				if (!this.runTask()) {
 					coroutine.yield(); // pause the current thread until next execution
 				}
@@ -52,7 +51,7 @@ export abstract class TaskScheduler<T extends Runnable> {
 	}
 
 	protected runTask() {
-		let runnable = this.stack.pop();
+		const runnable = this.stack.pop();
 		if (runnable) {
 			debug.profilebegin(this.name + " Start Task");
 			this.executeTask(runnable);
