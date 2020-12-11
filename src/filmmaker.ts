@@ -1,7 +1,7 @@
 import { TaskScheduler, Runnable, THREAD_MAP } from "./thread";
 
 /**
- * Easy implementation for a TaskScheduler
+ * Multi-threading scheduler. Similar to the internal Task Scheduler.
  */
 export class Scheduler extends TaskScheduler<Runnable> {
 	private thread: thread = this.createThread();

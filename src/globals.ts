@@ -1,7 +1,9 @@
 import { Scheduler } from "./filmmaker";
+import { FAnimation } from "./keying";
 
 export namespace Globals {
 	export let plugin: Plugin;
+	export let current: FAnimation;
 }
 
 export namespace Schedulers {

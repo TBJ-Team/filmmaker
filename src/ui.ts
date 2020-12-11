@@ -1,4 +1,4 @@
-import { Globals } from "./globals";
+import { Globals, Schedulers } from "./globals";
 
 export class UI {
 	private readonly graphEditor: DockWidgetPluginGui;
@@ -18,8 +18,6 @@ export class UI {
 }
 
 class Graph {
-	// paths of frames that have been selected
-	private selected: string[] = [];
 	private busy = false;
 	private uiFrame: Frame;
 
@@ -28,9 +26,14 @@ class Graph {
 	}
 
 	render() {
-		while (this.busy) {
-			wait();
-		}
+		Schedulers.UI.execute(() => {
+			while (this.busy) {
+				wait();
+			}
+		});
 	}
+
+	setData(map: Map<number, number>) {}
+
 	frame() {}
 }

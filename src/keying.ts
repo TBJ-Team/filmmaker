@@ -6,7 +6,7 @@ const Selection = game.GetService("Selection");
  * @param ancestor
  * @param value
  */
-function setPath<T extends Instance>(path: string, ancestor: Instance, value: never) {
+export function setPath<T extends Instance>(path: string, ancestor: Instance, value: never) {
 	let inst: Instance | undefined = ancestor;
 	const pathArray = path.split(".");
 	for (const v of pathArray.slice(0, pathArray.size() - 1)) {
@@ -18,7 +18,7 @@ function setPath<T extends Instance>(path: string, ancestor: Instance, value: ne
 	inst[<InstanceProperties<T>>pathArray[pathArray.size() - 1]] = value;
 }
 
-function getValue<T extends Instance>(path: string, ancestor: Instance): unknown {
+export function getValue<T extends Instance>(path: string, ancestor: Instance): unknown {
 	let inst: Instance | undefined = ancestor;
 	const pathArray = path.split(".");
 	for (const v of pathArray.slice(0, pathArray.size() - 1)) {
@@ -30,7 +30,7 @@ function getValue<T extends Instance>(path: string, ancestor: Instance): unknown
 	return inst[<InstanceProperties<T>>pathArray[pathArray.size() - 1]];
 }
 
-function recurse(instance: Instance, ancestor: Instance, out: Instance[] = []): Instance[] | undefined {
+export function recurse(instance: Instance, ancestor: Instance, out: Instance[] = []): Instance[] | undefined {
 	if (out.size() === 0) {
 		out.push(instance);
 	}
@@ -43,7 +43,7 @@ function recurse(instance: Instance, ancestor: Instance, out: Instance[] = []): 
 	return undefined;
 }
 
-function getPath(instance: Instance, ancestor: Instance, property: string): string {
+export function getPath(instance: Instance, ancestor: Instance, property: string): string {
 	const out = recurse(instance, ancestor);
 	if (out) {
 		return `${out.join(".")}.${property}`;
@@ -51,18 +51,26 @@ function getPath(instance: Instance, ancestor: Instance, property: string): stri
 	return "";
 }
 
-export class Animation {
+export class FAnimation {
 	private char: Model;
+
+	/**
+	 * Sequence of frames, based off of paths and either a list of keyframes or just one.
+	 * @private
+	 */
+	private sequence: FKeyframe[] = [];
 
 	public constructor(char: Model) {
 		this.char = char;
 	}
 
-	public interp(time: number) {}
+	public getValue(time: number) {
+		return 0;
+	}
 
-	public insert() {}
+	public insert(path: string, time: number) {}
 }
 
-export class Frame {
-	private data = new Map<string, unknown>();
-}
+class FKeyframe {}
+
+class Frame {}
