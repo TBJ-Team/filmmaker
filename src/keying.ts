@@ -1,5 +1,13 @@
 const Selection = game.GetService("Selection");
 
+function slice<T>(t: T[], first: number, last: number) {
+	const out: T[] = [];
+	for (let i = first; i < math.min(last, t.size()); i++) {
+		out[i] = t[i];
+	}
+	return out;
+}
+
 /**
  * Set the value for a given path.
  * @param path
@@ -9,7 +17,7 @@ const Selection = game.GetService("Selection");
 export function setPath<T extends Instance>(path: string, ancestor: Instance, value: never) {
 	let inst: Instance | undefined = ancestor;
 	const pathArray = path.split(".");
-	for (const v of pathArray.slice(0, pathArray.size() - 1)) {
+	for (const v of slice(pathArray, 0, pathArray.size() - 1)) {
 		inst = inst.FindFirstChild(v);
 		if (inst === undefined) {
 			return;
@@ -21,7 +29,7 @@ export function setPath<T extends Instance>(path: string, ancestor: Instance, va
 export function getValue<T extends Instance>(path: string, ancestor: Instance): unknown {
 	let inst: Instance | undefined = ancestor;
 	const pathArray = path.split(".");
-	for (const v of pathArray.slice(0, pathArray.size() - 1)) {
+	for (const v of slice(pathArray, 0, pathArray.size() - 1)) {
 		inst = inst.FindFirstChild(v);
 		if (inst === undefined) {
 			return;

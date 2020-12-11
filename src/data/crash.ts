@@ -1,8 +1,8 @@
 import { ServerStorage, Stats } from "@rbxts/services";
-import { THREAD_MAP } from "./thread";
-import { Globals } from "./globals";
+import { THREAD_MAP } from "../thread";
+import { Globals } from "../globals";
 
-import config from "crash_config.json";
+import config from "./crash_config.json";
 
 function round2(num: number, numDecimalPlaces = 0) {
 	return tonumber(("%." + numDecimalPlaces + "f").format(num));

@@ -3,7 +3,6 @@
 import { Scheduler } from "filmmaker";
 import { THREAD_MAP } from "thread";
 import { Globals, Schedulers } from "globals";
-import * as Roact from "@rbxts/roact";
 import { FAnimation } from "./keying";
 import { Workspace } from "@rbxts/services";
 
