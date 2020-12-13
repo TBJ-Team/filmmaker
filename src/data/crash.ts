@@ -13,6 +13,9 @@ export declare const gcinfo: () => number;
 export const LOGS_FOLDER: Folder = new Instance("Folder", ServerStorage);
 LOGS_FOLDER.Name = "Filmmaker Crash Logs";
 
+/**
+ * The CrashReport class handles all of the reporting and crashing.
+ */
 export class CrashReport {
 	private static readonly COMMENTS: string[] = config.comments;
 
@@ -26,6 +29,10 @@ export class CrashReport {
 		this.put();
 	}
 
+	/**
+	 * Open a new crash log using the specified cause.
+	 * @param cause Cause of crash
+	 */
 	public static openCause(cause: unknown) {
 		const report = new CrashReport(cause);
 		report.open();

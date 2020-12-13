@@ -3,7 +3,7 @@
 import { Scheduler } from "filmmaker";
 import { THREAD_MAP } from "thread";
 import { Globals, Schedulers } from "globals";
-import { FAnimation } from "./keying";
+import { FAnimation } from "./animation";
 import { Workspace } from "@rbxts/services";
 
 Globals.plugin = plugin;

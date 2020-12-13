@@ -1,10 +1,14 @@
 {
   "name": "filmmaker",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "An animation suite for the modern era",
   "main": "index.js",
   "scripts": {
-    "build": "rbxtsc\nrojo build --output Filmmaker.rbxmx"
+    "build": "rbxtsc\nrojo build --output Filmmaker.rbxmx",
+    "test": "eslint src/index.server.ts",
+    "preversion": "npm run test",
+    "version": "",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "",
