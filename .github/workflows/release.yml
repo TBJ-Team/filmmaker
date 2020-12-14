@@ -22,6 +22,7 @@ jobs:
 
     - name: Install roblox-ts
       run: |
+        npm install
         npm install -g roblox-ts
 
     - name: Compile typescript
