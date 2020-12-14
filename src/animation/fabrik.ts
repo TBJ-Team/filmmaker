@@ -6,8 +6,7 @@ export class IKSystem {
 	joints: Vector3[] = [];
 
 	constructor(joints?: Vector3[]) {
-		if (joints)
-			this.joints = joints;
+		if (joints) this.joints = joints;
 	}
 
 	length(): number {
@@ -16,17 +15,15 @@ export class IKSystem {
 		this.joints.forEach((val: Vector3) => {
 			let out = 0;
 			if (lastValue) {
-				out = (lastValue.sub(val)).Magnitude;
+				out = lastValue.sub(val).Magnitude;
 			}
 			lastValue = val;
 			length += out;
-		})
+		});
 		return length;
 	}
 
 	backwards() {}
 
-	forwards() {
-	
-	}
+	forwards() {}
 }

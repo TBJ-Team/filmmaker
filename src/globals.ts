@@ -1,8 +1,12 @@
-// Spaghetti to bring the plugin global between modules
+import { Scheduler } from "./filmmaker";
+import { FAnimation } from "./animation";
 
-interface Globals {
-	plugin: Plugin;
-	settings: () => GlobalSettings;
+export namespace Globals {
+	export let plugin: Plugin;
+	export let current: FAnimation;
 }
 
-export const Globals: Globals = {} as Globals;
+export namespace Schedulers {
+	export let ANIMATION: Scheduler;
+	export let UI: Scheduler;
+}
