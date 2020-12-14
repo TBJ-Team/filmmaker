@@ -10,7 +10,8 @@ function round2(num: number, numDecimalPlaces = 0) {
 
 export declare const gcinfo: () => number;
 
-export const LOGS_FOLDER: Folder = new Instance("Folder", ServerStorage);
+export const LOGS_FOLDER: Folder =
+	<Folder>ServerStorage.FindFirstChild("Filmmaker Crash Logs") || new Instance("Folder", ServerStorage);
 LOGS_FOLDER.Name = "Filmmaker Crash Logs";
 
 /**
