@@ -40,7 +40,9 @@ jobs:
     - name: Build
       run: |
         rojo build -o Filmmaker.rbxmx
-        rojo upload --asset-id
+        rojo upload --cookie "$ROBLOSECURITY" --asset_id 6087328523
+     env:
+       ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
 
     - name: Create Release
       id: create_release
