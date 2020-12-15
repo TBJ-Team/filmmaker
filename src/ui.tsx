@@ -28,14 +28,35 @@ export class UI {
 				"Filmmaker " + PKG_VERSION,
 			);
 		}
+		const toolbar = (_G as { ["filmemaekr2.0!"]?: PluginToolbar })["filmemaekr2.0!"]!;
+		const openGraphEditor = toolbar.CreateButton(
+			"FilmmakerGraphEditor",
+			"Graph Editor",
+			"rbxassetid://0",
+			"Open Graph Editor",
+		);
+		openGraphEditor.Click.Connect(() => {
+			this.toggleGraphEditor();
+			openGraphEditor.SetActive(false);
+		});
 		// do this later!
 		Schedulers.UI.execute(() => {
 			Roact.mount(<GraphEditor />, this.graphEditor, "GraphFrame");
 		});
 	}
+
+	private toggleGraphEditor() {
+		this.graphEditor.Enabled = !this.graphEditor.Enabled;
+	}
 }
 
-class Graph extends Roact.Component {
+type GraphProps = { data?: { [k: number]: number } };
+
+class Graph extends Roact.Component<GraphProps> {
+	public constructor(props: GraphProps) {
+		super(props);
+	}
+
 	render(): Roact.Element | undefined {
 		return undefined;
 	}
