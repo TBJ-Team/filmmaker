@@ -52,7 +52,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
-        body: "Filmmaker can also be found at: https://www.roblox.com/library/6085497229/Filmmaker! This is an automated message. Beep boop."
+        body: "Filmmaker can also be found at: https://www.roblox.com/library/6087328523/Filmmaker! This is an automated message. Beep boop."
         draft: false
         prerelease: false
 

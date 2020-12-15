@@ -53,9 +53,7 @@ export abstract class TaskScheduler<T extends Runnable> {
 	protected runTask() {
 		const runnable = this.stack.pop();
 		if (runnable) {
-			debug.profilebegin(this.name + " Start Task");
 			this.executeTask(runnable);
-			debug.profileend();
 			return true;
 		} else if (this.executions === 0) {
 			return false;
