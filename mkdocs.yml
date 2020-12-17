@@ -40,5 +40,8 @@ markdown_extensions:
       permalink: true
   - meta
 
+extra_templates:
+  - overrides/filmmaker.html
+
 plugins:
   - search
