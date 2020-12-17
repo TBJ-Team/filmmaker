@@ -66,3 +66,15 @@ jobs:
         asset_path: ./Filmmaker.rbxmx
         asset_name: Filmmaker.rbxmx
         asset_content_type: application/xml
+
+  docs:
+    name: Deploy Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.11
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

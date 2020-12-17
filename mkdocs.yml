@@ -1,18 +1,22 @@
 site_name: Filmmaker
-site_url: https://tbj-team.github.io/filmmaker/
-repo_name: TBJ-Team/filmmaker
-repo_url: https://github.com/TBJ-Team/filmmaker
+site_url: https://gyrolabs.github.io/filmmaker/
+repo_name: GyroLabs/filmmaker
+repo_url: https://github.com/GyroLabs/filmmaker
 
 theme:
   name: material
 
   features:
     - navigation.tabs
+    - navigation.instant
 
   palette:
     scheme: slate
     primary: blue
     accent: blue
+
+  icon:
+    repo: fontawesome/brands/git-alt
 
 nav:
   - Home: index.md
@@ -27,8 +31,8 @@ nav:
 
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: false
   - toc:
       permalink: true
-  - pymdownx.superfences
+
+plugins:
+  - search
