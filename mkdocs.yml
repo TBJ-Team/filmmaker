@@ -4,7 +4,7 @@ repo_name: TBJ-Team/filmmaker
 repo_url: https://github.com/TBJ-Team/filmmaker
 
 theme:
-  name: null
+  name: material
 
   features:
     - navigation.tabs
