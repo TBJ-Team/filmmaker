@@ -1,3 +1,20 @@
----
-template: overrides/fhome.html
----
+{% extends "overrides/main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+<section class="tx-container">
+    <div class="md-grid md-typeset">
+        <div class="tx-hero">
+            <div class="tx-hero__content">
+                <h1>Animation that just works.</h1>
+                <p>{{ config.site_description }}</p>
+                <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+                    Quick start
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
