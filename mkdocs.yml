@@ -41,7 +41,7 @@ markdown_extensions:
   - meta
 
 extra_templates:
-  - overrides/filmmaker.html
+  - templates/filmmaker.html
 
 plugins:
   - search
