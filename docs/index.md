@@ -1,3 +1,3 @@
 ---
-template: overrides/home.html
+template: home.html
 ---

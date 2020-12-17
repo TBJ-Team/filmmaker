@@ -10,13 +10,14 @@ repo_url: https://github.com/GyroLabs/filmmaker
 
 theme:
   name: material
+  custom_dir: overrides
 
   features:
     - navigation.tabs
     - navigation.instant
 
   palette:
-    scheme: slate
+    scheme: default
     primary: blue
     accent: blue
 
