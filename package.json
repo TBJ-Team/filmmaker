@@ -1,6 +1,6 @@
 {
   "name": "filmmaker",
-  "version": "0.4.8-0",
+  "version": "0.4.8",
   "description": "An animation suite for the modern era",
   "main": "index.js",
   "scripts": {
