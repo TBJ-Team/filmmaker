@@ -1,5 +1,10 @@
 site_name: Filmmaker
 site_url: https://gyrolabs.github.io/filmmaker/
+site_description: >-
+  Create fluid animation with Filmmaker, the animation suite produced
+  by Gyro Laboratories. Explore many different possibilities,
+  completely free of charge.
+
 repo_name: GyroLabs/filmmaker
 repo_url: https://github.com/GyroLabs/filmmaker
 
@@ -33,6 +38,7 @@ markdown_extensions:
   - admonition
   - toc:
       permalink: true
+  - meta
 
 plugins:
   - search

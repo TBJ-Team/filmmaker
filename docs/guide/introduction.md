@@ -1,7 +1,7 @@
 # _Introduction_ - The Guide to _Filmmaker_
 Welcome to the guide to Filmmaker. This guide will pull you through your first animation in Filmmaker. This introduction page serves more of a purpose to sell Filmmaker to people who are reluctant to use Filmmaker, or seem intimidated by it.
 
-!!! tldr inline end
+!!! tldr "tl;dr"
     Filmmaker may be daunting, but it is worth the work. This guide will show you how to make your first animation.
 
 ## Why Filmmaker?
