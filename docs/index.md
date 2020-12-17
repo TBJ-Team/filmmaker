@@ -1,5 +1,5 @@
-Hello, and welcome to Filmmaker! If you (a poor soul) stumbled across this, do not fear! I don't know what I am doing
-either! This plugin (yes, it's a plugin) for Roblox Studio (yes, Roblox, of all places) is still currently in development!
-By one person! Yeah.
+# Home
+Hello, and welcome to the documentation for Filmmaker, the animation suite produced by Gyro Laboratories. 
+If you are new to Filmmaker, please check out the [introductory page]() for Filmmaker.
 
-Anyways, feel free to poke around, or even contribute.
+As always, thank you for using Filmmaker and supporting us and the development.

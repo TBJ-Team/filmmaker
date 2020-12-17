@@ -4,15 +4,23 @@ repo_name: TBJ-Team/filmmaker
 repo_url: https://github.com/TBJ-Team/filmmaker
 
 theme:
-  name: material
+  name: null
+
+  features:
+    - navigation.tabs
+
   palette:
-    primary: 'Red'
-    accent: 'Red'
+    scheme: slate
+    primary: blue
+    accent: blue
 
 nav:
   - Home: index.md
   - Guide:
+    - Introduction: guide/introduction.md
     - Basic Animation: guide/b_animation.md
+  - Reference:
+    - The Graph Editor: reference/graph_editor.md
   - Contributing:
     - Code Contributions: contributing/contributing.md
     - Animation Contributions: contributing/animations.md

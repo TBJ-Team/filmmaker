@@ -1,2 +1,2 @@
-# _Basic animation_ - A tutorial for _Filmmaker_
-I am isn't
+# _Basic Animation_ - The Guide to _Filmmaker_
+The entire point of Filmmaker is to create high-quality animations, while still remaining easy enough to understand. 
