@@ -1,3 +1,3 @@
 ---
-template: overrides/filmmaker.html
+template: templates/filmmaker.html
 ---
