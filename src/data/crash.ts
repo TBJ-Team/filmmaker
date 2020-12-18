@@ -57,7 +57,7 @@ export class CrashReport {
 
 	public toString(): string {
 		let str = "--[[\n";
-		str += "// " + CrashReport.comment();
+		str += "-- " + CrashReport.comment();
 		str += "\n\n";
 		str += "Filmmaker has crashed!\nIf you wanna report this, please submit a Github issue @ GyroLabs/Filmmaker";
 		str += "\n\n";

@@ -128,6 +128,7 @@ function GraphEditor(props: RbxJsxProps) {
 				Position={new UDim2(0, 0, 0, 25)}
 				BackgroundColor3={theme.GetColor("ScriptBackground")}
 				BorderSizePixel={0}
+				Active={false}
 			>
 				<Graph />
 			</frame>
@@ -148,7 +149,7 @@ export class UI {
 		// graph editor widget
 		this.graphEditor = Globals.plugin.CreateDockWidgetPluginGui(
 			"FilmmakerGraph",
-			new DockWidgetPluginGuiInfo(Enum.InitialDockState.Bottom, false),
+			new DockWidgetPluginGuiInfo(Enum.InitialDockState.Bottom, false, true),
 		);
 		this.graphEditor.Title = "Graph Editor";
 
@@ -157,7 +158,9 @@ export class UI {
 		if ((_G as { [name: string]: PluginToolbar | undefined })["Filmmaker" + PKG_VERSION] === undefined) {
 			(_G as { [name: string]: PluginToolbar | undefined })[
 				"Filmmaker" + PKG_VERSION
-			] = Globals.plugin.CreateToolbar("Filmmaker " + PKG_VERSION);
+			] = Globals.plugin.CreateToolbar(
+				"Filmmaker " + PKG_VERSION + (Globals.plugin.Name.find(".rbxm")[0] ? " (Local)" : ""),
+			);
 		}
 		const toolbar = (_G as { [name: string]: PluginToolbar | undefined })["Filmmaker" + PKG_VERSION]!;
 
@@ -165,7 +168,7 @@ export class UI {
 		const openGraphEditor = toolbar.CreateButton(
 			"FilmmakerGraphEditor",
 			"Graph Editor",
-			"rbxassetid://0",
+			"rbxassetid://6101578744",
 			"Open Graph Editor",
 		);
 		openGraphEditor.Click.Connect(() => {
@@ -189,19 +192,66 @@ export class UI {
 }
 
 type GraphProps = { data?: { [k: number]: number } };
+type GraphState = { startCoords?: Vector2; endCoords?: Vector2 };
 
 /**
  * Represents a graph of many objects.
  */
-class Graph extends Roact.Component<GraphProps> {
+class Graph extends Roact.PureComponent<GraphProps, GraphState> {
 	public constructor(props: GraphProps) {
 		super(props);
 	}
 
+	scrolled = (element: Frame, input: InputObject) => {
+		if (input.UserInputType === Enum.UserInputType.MouseWheel) {
+			print("Hello, world!");
+		}
+	};
+
 	render(): Roact.Element | undefined {
+		const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
+		print("Reconciling!");
 		return Roact.createFragment({
-			["Elements"]: <frame></frame>,
-			["Graph"]: <frame></frame>,
+			["Elements"]: (
+				<frame
+					Size={new UDim2(0.3, 0, 1, 0)}
+					BackgroundColor3={theme.GetColor("MainBackground")}
+					BorderSizePixel={0}
+				></frame>
+			),
+			["Graph"]: (
+				<frame
+					Event={{ InputBegan: this.scrolled }}
+					Size={new UDim2(0.7, 0, 1, 0)}
+					Position={new UDim2(0.3, 0, 0, 0)}
+					BackgroundColor3={theme.GetColor("ScriptBackground")}
+					BorderSizePixel={0}
+					Active={true}
+				></frame>
+			),
 		});
+	}
+}
+
+type GraphNodeProps = {
+	/** The first value */
+	A: number;
+	/** The second value */
+	B: number;
+	/** The frame that value A takes place*/
+	At: number;
+	/** The frame that value B takes place */
+	Bt: number;
+
+	startCoords: Vector2;
+	endCoords: Vector2;
+};
+
+/**
+ * Represents a single "interval" on a graph.
+ */
+class GraphNode extends Roact.PureComponent<GraphNodeProps> {
+	render(): Roact.Element | undefined {
+		return <frame Active={false} />;
 	}
 }

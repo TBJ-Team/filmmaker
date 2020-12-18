@@ -1,5 +1,5 @@
-import { Scheduler } from "./filmmaker";
 import { FAnimation } from "./animation";
+import { Scheduler } from "./thread";
 
 export namespace Globals {
 	export let plugin: Plugin;

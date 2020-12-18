@@ -8,6 +8,8 @@ site_description: >-
 repo_name: GyroLabs/filmmaker
 repo_url: https://github.com/GyroLabs/filmmaker
 
+copyright: Roblox are trademarks of Roblox Corporation or its affiliates in the United States and/or other countries.
+
 theme:
   name: material
   custom_dir: overrides
@@ -28,9 +30,12 @@ nav:
   - Home: index.md
   - Guide:
     - Introduction: guide/introduction.md
+    - Installation: guide/installation.md
     - Basic Animation: guide/b_animation.md
+    - Advanced Animation: guide/a_animation.md
   - Reference:
     - The Graph Editor: reference/graph_editor.md
+    - The Project Editor: reference/project_editor.md
   - Contributing:
     - Code Contributions: contributing/contributing.md
     - Animation Contributions: contributing/animations.md
@@ -40,6 +45,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed
+  - pymdownx.superfences
 
 plugins:
   - search

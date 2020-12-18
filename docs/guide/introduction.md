@@ -1,8 +1,7 @@
 # _Introduction_ - The Guide to _Filmmaker_
-Welcome to the guide to Filmmaker. This guide will pull you through your first animation in Filmmaker. This introduction page serves more of a purpose to sell Filmmaker to people who are reluctant to use Filmmaker, or seem intimidated by it.
-
-!!! tldr "tl;dr"
-    Filmmaker may be daunting, but it is worth the work. This guide will show you how to make your first animation.
+Welcome to the guide to Filmmaker. This guide will pull you through your first animation in Filmmaker. This introduction
+page serves more of a purpose to sell Filmmaker to people who are reluctant to use Filmmaker, or seem intimidated by it.
+It is also here to answer frequently asked questions that you may have.
 
 ## Why Filmmaker?
 Using and adding a tool such as Filmmaker to your workflow may be quite daunting, however it comes with several key advantages.
