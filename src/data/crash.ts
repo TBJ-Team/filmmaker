@@ -1,6 +1,5 @@
 import { ServerStorage, Stats } from "@rbxts/services";
-import { THREAD_MAP } from "../thread";
-import { Globals } from "../globals";
+import { Globals, THREAD_MAP } from "../globals";
 
 import config from "./crash_config.json";
 
@@ -9,10 +8,6 @@ function round2(num: number, numDecimalPlaces = 0) {
 }
 
 export declare const gcinfo: () => number;
-
-export const LOGS_FOLDER: Folder =
-	<Folder>ServerStorage.FindFirstChild("Filmmaker Crash Logs") || new Instance("Folder", ServerStorage);
-LOGS_FOLDER.Name = "Filmmaker Crash Logs";
 
 /**
  * The CrashReport class handles all of the reporting and crashing.
@@ -69,18 +64,13 @@ export class CrashReport {
 		return str;
 	}
 
-	public log(): ModuleScript {
+	public open(): ModuleScript {
 		if (this.logFile) {
 			return this.logFile;
 		}
-		const out = new Instance("ModuleScript", LOGS_FOLDER);
+		const out = new Instance("ModuleScript");
 		out.Name = <string>os.date(config.format);
 		out.Source = this.toString();
-		return out;
-	}
-
-	public open(): ModuleScript {
-		const out = this.log();
 		Globals.plugin.OpenScript(out);
 		return out;
 	}

@@ -14,7 +14,7 @@ local version.
 [1]: https://www.roblox.com/library/6087328523/Filmmaker
 
 ### Github Releases
-[:octicons-link-24: Hyperlink][2] · :octicons-check-24: Supported · :octicons-git-branch-24: Moddable
+[:octicons-link-24: Hyperlink][2] · :octicons-check-24: Supported · :octicons-git-branch-24: Modifiable
 
 There are GitHub releases dating back all the way to very early versions of Filmmaker. This allows you to use older versions
 of Filmmaker without having to install using other, less trustworthy methods. You can also download the source code for
@@ -23,7 +23,7 @@ a given version, and modify and build from there.
 To install a built binary (`.rbxmx`), you must locate your plugins folder, which can be found using the `Plugins Folder` button under
 the `Plugins` tab in Roblox Studio. 
 
-![Location of Plugins Folder](/images/Plugin_Folder_Toolbar.png)
+![Location of Plugins Folder](/assets/images/Plugin_Folder_Toolbar.png)
 
 Then, drag the `.rbxmx` into the plugins folder. You may have to reboot your Roblox Studio client to initialize the plugin.
 
@@ -52,7 +52,7 @@ rbxtsc && rojo build --output Filmmaker.rbxmx
 ```
 
 If everything worked, there should be a built binary called `Filmmaker.rbxmx` in the root folder. Then, you could easily
-repeat the process detailed before to install it locally.
+repeat the process detailed beforehand to install it locally.
 
 [2]: https://github.com/GyroLabs/filmmaker/releases/
 

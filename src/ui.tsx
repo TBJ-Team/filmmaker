@@ -1,6 +1,8 @@
 import { Globals, Schedulers } from "./globals";
 import * as Roact from "@rbxts/roact";
-import { TextService } from "@rbxts/services";
+import { StarterGui, TextService } from "@rbxts/services";
+
+const theme = settings().Studio.Theme;
 
 /**
  * Mandatory type for all toolbar item properties.
@@ -14,7 +16,6 @@ type ToolbarItem = { Order: number };
  */
 function ToolbarMenu(props: { Clicked: () => void; Name: string } & ToolbarItem) {
 	const textSize = TextService.GetTextSize(props.Name, 18, Enum.Font.Gotham, new Vector2(math.huge, 25));
-	const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
 	return (
 		<textbutton
 			Text={props.Name}
@@ -36,7 +37,6 @@ function ToolbarMenu(props: { Clicked: () => void; Name: string } & ToolbarItem)
  * @constructor
  */
 function ToolbarButton(props: { Clicked: () => void; Icon: string } & ToolbarItem) {
-	const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
 	return (
 		<imagebutton
 			BackgroundColor3={theme.GetColor("MainBackground")}
@@ -59,7 +59,6 @@ function ToolbarButton(props: { Clicked: () => void; Icon: string } & ToolbarIte
  * @constructor
  */
 function ToolbarSeparator(props: ToolbarItem) {
-	const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
 	return (
 		<frame
 			BackgroundColor3={theme.GetColor("Separator")}
@@ -98,42 +97,17 @@ function GraphEditorToolbar(props: RbxJsxProps) {
 				Order={1}
 			/>
 		),
-		["Seperator00"]: <ToolbarSeparator Order={2} />,
+		["Separator00"]: <ToolbarSeparator Order={2} />,
 		["Linear Tangent"]: (
 			<ToolbarButton
 				Clicked={() => {
-					print("Linear tangented!");
+					print("Linear tangent!");
 				}}
 				Icon={"rbxassetid://1261714227"}
 				Order={3}
 			/>
 		),
 	});
-}
-
-function GraphEditor(props: RbxJsxProps) {
-	// thank you roblox-ts, very cool
-	const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
-	return (
-		<frame Size={new UDim2(1, 0, 1, 0)} BackgroundColor3={theme.GetColor("MainBackground")}>
-			<frame
-				Size={new UDim2(1, 0, 0, 25)}
-				BackgroundColor3={theme.GetColor("MainBackground")}
-				BorderSizePixel={0}
-			>
-				<GraphEditorToolbar />
-			</frame>
-			<frame
-				Size={new UDim2(1, 0, 1, -25)}
-				Position={new UDim2(0, 0, 0, 25)}
-				BackgroundColor3={theme.GetColor("ScriptBackground")}
-				BorderSizePixel={0}
-				Active={false}
-			>
-				<Graph />
-			</frame>
-		</frame>
-	);
 }
 
 /**
@@ -171,9 +145,17 @@ export class UI {
 			"rbxassetid://6101578744",
 			"Open Graph Editor",
 		);
+		const crashButton = toolbar.CreateButton("ForceCrash", "Crash Filmmaker", "rbxassetid://0", "Forcefully Crash");
 		openGraphEditor.Click.Connect(() => {
 			this.toggleGraphEditor();
 			openGraphEditor.SetActive(false);
+		});
+		crashButton.Click.Connect(() => {
+			Schedulers.UI.execute(() => {
+				throw "TEST CRASH. THIS IS A DRILL.";
+			});
+			print("Crashed!");
+			crashButton.SetActive(false);
 		});
 
 		// execute this later!
@@ -191,43 +173,114 @@ export class UI {
 	}
 }
 
-type GraphProps = { data?: { [k: number]: number } };
-type GraphState = { startCoords?: Vector2; endCoords?: Vector2 };
+function GraphEditor(props: RbxJsxProps) {
+	return (
+		<frame Size={new UDim2(1, 0, 1, 0)} BackgroundColor3={theme.GetColor("MainBackground")}>
+			<frame
+				Size={new UDim2(1, 0, 0, 25)}
+				BackgroundColor3={theme.GetColor("MainBackground")}
+				BorderSizePixel={0}
+			>
+				<GraphEditorToolbar />
+			</frame>
+			<frame
+				Size={new UDim2(1, 0, 1, -25)}
+				Position={new UDim2(0, 0, 0, 25)}
+				BackgroundColor3={theme.GetColor("ScriptBackground")}
+				BorderSizePixel={0}
+				Active={false}
+			>
+				<Graph
+					data={[
+						[0, 1],
+						[1, 3],
+						[2, 6],
+						[3, 12],
+						[4, 11],
+						[5, 9],
+						[6, 6],
+					]}
+				/>
+			</frame>
+		</frame>
+	);
+}
+
+type GraphProps = { data: Array<[number, number]> };
+type GraphState = { startCoords?: Vector2; endCoords?: Vector2; absoluteSize?: Vector2 };
 
 /**
  * Represents a graph of many objects.
  */
 class Graph extends Roact.PureComponent<GraphProps, GraphState> {
+	private readonly graphFrame: Roact.Ref<Frame>;
+
 	public constructor(props: GraphProps) {
 		super(props);
+		this.graphFrame = Roact.createRef();
 	}
 
-	scrolled = (element: Frame, input: InputObject) => {
-		if (input.UserInputType === Enum.UserInputType.MouseWheel) {
-			print("Hello, world!");
+	scrolled = (element: Frame, x: number, y: number) => {
+		print("Hallo, welt!");
+	};
+
+	graphChanged = (rbx: Frame) => {
+		if (this.state.absoluteSize === rbx.AbsoluteSize) {
+			return;
 		}
+		this.setState({
+			startCoords: this.state.startCoords,
+			endCoords: this.state.endCoords,
+			absoluteSize: rbx.AbsoluteSize,
+		});
 	};
 
 	render(): Roact.Element | undefined {
-		const theme = ((settings().Studio as unknown) as { Theme: StudioTheme }).Theme;
-		print("Reconciling!");
+		const graphElements = this.props.data.mapFiltered(([t, value], index) => {
+			if (index === this.props.data.size() - 1) {
+				return undefined;
+			}
+			const [BFt, BF] = this.props.data[index + 1];
+
+			return (
+				// uh
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
+				<GraphNode
+					A={value}
+					B={BF}
+					At={t}
+					Bt={BFt}
+					startCoords={this.state.startCoords || new Vector2(-5, -5)}
+					endCoords={this.state.endCoords || new Vector2(10, 15)}
+					graphSize={this.state.absoluteSize}
+					Key={t}
+				/>
+			);
+		});
 		return Roact.createFragment({
 			["Elements"]: (
 				<frame
 					Size={new UDim2(0.3, 0, 1, 0)}
 					BackgroundColor3={theme.GetColor("MainBackground")}
 					BorderSizePixel={0}
-				></frame>
+				/>
 			),
 			["Graph"]: (
 				<frame
-					Event={{ InputBegan: this.scrolled }}
+					Event={{ MouseWheelBackward: this.scrolled, MouseWheelForward: this.scrolled }}
 					Size={new UDim2(0.7, 0, 1, 0)}
 					Position={new UDim2(0.3, 0, 0, 0)}
 					BackgroundColor3={theme.GetColor("ScriptBackground")}
 					BorderSizePixel={0}
 					Active={true}
-				></frame>
+					Change={{
+						AbsoluteSize: this.graphChanged,
+					}}
+					ClipsDescendants={true}
+				>
+					{graphElements}
+				</frame>
 			),
 		});
 	}
@@ -245,13 +298,49 @@ type GraphNodeProps = {
 
 	startCoords: Vector2;
 	endCoords: Vector2;
+	graphSize?: Vector2;
 };
 
 /**
  * Represents a single "interval" on a graph.
+ * @param props The properties of the node.
+ * @constructor
  */
-class GraphNode extends Roact.PureComponent<GraphNodeProps> {
-	render(): Roact.Element | undefined {
-		return <frame Active={false} />;
+function GraphNode(props: GraphNodeProps) {
+	if (!props.graphSize) {
+		return undefined;
 	}
+	const domain = props.endCoords.X - props.startCoords.X;
+	const range = props.endCoords.Y - props.startCoords.Y;
+	const pA = new UDim2(0.05 + (props.At / domain) * 0.9, 0, 0.9 - ((props.A - props.startCoords.Y) / range) * 0.9, 0);
+	const pB = new UDim2(0.05 + (props.Bt / domain) * 0.9, 0, 0.9 - ((props.B - props.startCoords.Y) / range) * 0.9, 0);
+	const GraphSize = props.graphSize!;
+	const lineStartX = pA.X.Scale * GraphSize.X;
+	const lineStartY = pA.Y.Scale * GraphSize.Y;
+	const lineEndX = pB.X.Scale * GraphSize.X;
+	const lineEndY = pB.Y.Scale * GraphSize.Y;
+	const Distance = new Vector2(lineStartX, lineStartY).sub(new Vector2(lineEndX, lineEndY)).Magnitude;
+	return Roact.createFragment({
+		[props.At]: (
+			<frame
+				Active={false}
+				AnchorPoint={new Vector2(0.5, 0.5)}
+				SizeConstraint={Enum.SizeConstraint.RelativeXX}
+				BorderSizePixel={0}
+				Rotation={math.deg(math.atan2(lineEndY - lineStartY, lineEndX - lineStartX))}
+				Size={new UDim2(0, Distance, math.clamp(0.2, 0.002, 0.0035), 0)}
+				Position={new UDim2(0, (lineStartX + lineEndX) / 2, 0, (lineStartY + lineEndY) / 2)}
+			/>
+		),
+		[props.At + "_point"]: (
+			<frame
+				AnchorPoint={new Vector2(0.5, 0.5)}
+				Position={pB}
+				Size={new UDim2(0, 5, 0, 5)}
+				BorderSizePixel={0}
+				BackgroundColor3={new Color3(0, 0, 0)}
+				ZIndex={2}
+			/>
+		),
+	});
 }

@@ -1,6 +1,5 @@
 import { CrashReport } from "./data/crash";
-
-export const THREAD_MAP: Map<thread, string> = new Map<thread, string>();
+import { THREAD_MAP } from "./globals";
 
 export type Runnable = (...args: unknown[]) => void;
 

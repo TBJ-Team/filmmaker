@@ -1,7 +1,7 @@
 /// <reference types="@rbxts/types/plugin" />
 
-import { Scheduler, THREAD_MAP } from "thread";
-import { Globals, Schedulers } from "globals";
+import { Scheduler } from "thread";
+import { Globals, Schedulers, THREAD_MAP } from "globals";
 import { FAnimation } from "./animation";
 import { Workspace } from "@rbxts/services";
 import { UI } from "./ui";

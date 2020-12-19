@@ -10,6 +10,26 @@ Using and adding a tool such as Filmmaker to your workflow may be quite daunting
 - (eventually) IK support
 - Ability to export as Roblox animation
 
+## Filmmaker Alternatives
+There are quite a few animation plugins out there. This includes, but not limited to:
+
+- [Moon Animator by xSIXx][1]
+- [Sun Animator by Musonius][2]
+- [Roblox Animation Editor by ROBLOX][3]
+- [Ro-Movie 2014 by Astreastela (broken)][4]
+- Many, many more broken and malicious animation plugins out there
+
+So why was Filmmaker even made? 
+
+If you've probably noticed, each one of these plugins does not support the ability to "spline" animations; meaning that
+Roblox is literally 20 years behind all the other game-building and animation software. The goal of Filmmaker is to
+raise the bar for Roblox, and induce some competition.
+
+[1]: https://www.roblox.com/library/4725618216/Moon-Animator
+[2]: https://www.roblox.com/library/5459534080/Sun-Animator
+[3]: https://www.roblox.com/library/144373835/Roblox-Animation-Editor
+[4]: https://www.roblox.com/library/156024670/Ro-Movie-2014
+
 ## Frequently Asked Questions
 
 #### How do I do *X*?

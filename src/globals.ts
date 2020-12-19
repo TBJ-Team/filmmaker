@@ -10,3 +10,5 @@ export namespace Schedulers {
 	export let ANIMATION: Scheduler;
 	export let UI: Scheduler;
 }
+
+export const THREAD_MAP: Map<thread, string> = new Map<thread, string>();
