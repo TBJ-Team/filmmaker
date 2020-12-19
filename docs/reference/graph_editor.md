@@ -5,6 +5,11 @@ The graph editor is the single most powerful tool inside the Filmmaker animation
 There is a toolbar at the top of the graph editor. It houses many of the controls you will be constantly using, from the
 tangents to the File and Edit menus.
 
+<figure>
+  <img src="../assets/images/Graph_Editor.png" width="300" />
+  <figcaption>Early Screenshot of the Graph Editor. Everything shown is subject to large changes.</figcaption>
+</figure>
+
 ## Frequently Asked Questions
 
 ### What is framing?

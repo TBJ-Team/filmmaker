@@ -23,7 +23,7 @@ a given version, and modify and build from there.
 To install a built binary (`.rbxmx`), you must locate your plugins folder, which can be found using the `Plugins Folder` button under
 the `Plugins` tab in Roblox Studio. 
 
-![Location of Plugins Folder](/assets/images/Plugin_Folder_Toolbar.png)
+![Location of Plugins Folder](../assets/images/Plugin_Folder_Toolbar.png)
 
 Then, drag the `.rbxmx` into the plugins folder. You may have to reboot your Roblox Studio client to initialize the plugin.
 
