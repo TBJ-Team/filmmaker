@@ -21,7 +21,7 @@
     "@rbxts/rodux": "^1.1.0",
     "@rbxts/services": "^1.1.2",
     "@rbxts/types": "^1.0.442",
-    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
