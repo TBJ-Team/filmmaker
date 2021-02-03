@@ -20,7 +20,7 @@
     "@rbxts/roact-rodux": "^0.1.2",
     "@rbxts/rodux": "^1.1.0",
     "@rbxts/services": "^1.1.2",
-    "@rbxts/types": "^1.0.444",
+    "@rbxts/types": "^1.0.445",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "eslint": "^7.19.0",
