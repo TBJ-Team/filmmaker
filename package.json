@@ -1,6 +1,6 @@
 {
   "name": "filmmaker",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "An animation suite for the modern era",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "GPLv3",
   "devDependencies": {
     "@rbxts/compiler-types": "^1.0.0-beta.15.0",
     "@rbxts/cubic-bezier": "^1.0.2",
@@ -28,6 +28,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-roblox-ts": "0.0.24",
     "prettier": "^2.2.1",
+    "typedoc": "^0.20.24",
     "typescript": "^4.1.5"
   },
   "dependencies": {}
