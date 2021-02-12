@@ -16,14 +16,15 @@ There are quite a few animation plugins out there. This includes, but not limite
 - [Moon Animator by xSIXx][1]
 - [Sun Animator by Musonius][2]
 - [Roblox Animation Editor by ROBLOX][3]
-- [Ro-Movie 2014 by Astreastela (broken)][4]
+- [Ro-Movie 2014 by Astreastela (very old and broken)][4]
 - Many, many more broken and malicious animation plugins out there
 
 So why was Filmmaker even made? 
 
-If you've probably noticed, each one of these plugins does not support the ability to "spline" animations; meaning that
-Roblox is literally 20 years behind all the other game-building and animation software. The goal of Filmmaker is to
-raise the bar for Roblox, and induce some competition.
+If you've probably noticed, each one of these plugins does not support the ability to "spline" animations. This means
+that most game-making and animation software is way ahead of Roblox in the animation aspect. Filmmaker was made simply
+to raise standards for animation suites around the platform, and with QFrame Editor coming out, Filmmaker might not even
+have to heave this task alone.
 
 [1]: https://www.roblox.com/library/4725618216/Moon-Animator
 [2]: https://www.roblox.com/library/5459534080/Sun-Animator

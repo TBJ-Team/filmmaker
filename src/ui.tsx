@@ -1,6 +1,6 @@
 import { Globals, Schedulers } from "./globals";
 import * as Roact from "@rbxts/roact";
-import { StarterGui, TextService } from "@rbxts/services";
+import { TextService } from "@rbxts/services";
 
 const theme = settings().Studio.Theme;
 
@@ -190,23 +190,13 @@ function GraphEditor(props: RbxJsxProps) {
 				BorderSizePixel={0}
 				Active={false}
 			>
-				<Graph
-					data={[
-						[0, 1],
-						[1, 3],
-						[2, 6],
-						[3, 12],
-						[4, 11],
-						[5, 9],
-						[6, 6],
-					]}
-				/>
+				<Graph data={[]} />
 			</frame>
 		</frame>
 	);
 }
 
-type GraphProps = { data: Array<[number, number]> };
+type GraphProps = { data: Array<[number, number, boolean]> };
 type GraphState = { startCoords?: Vector2; endCoords?: Vector2; absoluteSize?: Vector2 };
 
 /**
@@ -217,11 +207,20 @@ class Graph extends Roact.PureComponent<GraphProps, GraphState> {
 
 	public constructor(props: GraphProps) {
 		super(props);
+		this.setState({ startCoords: new Vector2(-5, -5), endCoords: new Vector2(10, 10) });
 		this.graphFrame = Roact.createRef();
 	}
 
-	scrolled = (element: Frame, x: number, y: number) => {
-		print("Hallo, welt!");
+	zoomOut = (element: Frame, x: number, y: number) => {
+		this.setState((prevState, props) => {
+			return { startCoords: prevState.startCoords?.mul(1.25), endCoords: prevState.endCoords?.mul(1.25) };
+		});
+	};
+
+	zoomIn = (element: Frame, x: number, y: number) => {
+		this.setState((prevState, props) => {
+			return { startCoords: prevState.startCoords?.mul(0.8), endCoords: prevState.endCoords?.mul(0.8) };
+		});
 	};
 
 	graphChanged = (rbx: Frame) => {
@@ -240,7 +239,7 @@ class Graph extends Roact.PureComponent<GraphProps, GraphState> {
 			if (index === this.props.data.size() - 1) {
 				return undefined;
 			}
-			const [BFt, BF] = this.props.data[index + 1];
+			const [BFt, BF, keyFrame] = this.props.data[index + 1];
 
 			return (
 				// uh
@@ -252,8 +251,9 @@ class Graph extends Roact.PureComponent<GraphProps, GraphState> {
 					At={t}
 					Bt={BFt}
 					startCoords={this.state.startCoords || new Vector2(-5, -5)}
-					endCoords={this.state.endCoords || new Vector2(10, 15)}
+					endCoords={this.state.endCoords || new Vector2(10, 10)}
 					graphSize={this.state.absoluteSize}
+					keyFrame={keyFrame}
 					Key={t}
 				/>
 			);
@@ -268,7 +268,7 @@ class Graph extends Roact.PureComponent<GraphProps, GraphState> {
 			),
 			["Graph"]: (
 				<frame
-					Event={{ MouseWheelBackward: this.scrolled, MouseWheelForward: this.scrolled }}
+					Event={{ MouseWheelBackward: this.zoomOut, MouseWheelForward: this.zoomIn }}
 					Size={new UDim2(0.7, 0, 1, 0)}
 					Position={new UDim2(0.3, 0, 0, 0)}
 					BackgroundColor3={theme.GetColor("ScriptBackground")}
@@ -295,6 +295,8 @@ type GraphNodeProps = {
 	At: number;
 	/** The frame that value B takes place */
 	Bt: number;
+
+	keyFrame: boolean;
 
 	startCoords: Vector2;
 	endCoords: Vector2;
@@ -328,7 +330,7 @@ function GraphNode(props: GraphNodeProps) {
 				SizeConstraint={Enum.SizeConstraint.RelativeXX}
 				BorderSizePixel={0}
 				Rotation={math.deg(math.atan2(lineEndY - lineStartY, lineEndX - lineStartX))}
-				Size={new UDim2(0, Distance, math.clamp(0.2, 0.002, 0.0035), 0)}
+				Size={new UDim2(0, Distance + 1, math.clamp(0.2, 0.002, 0.0035), 0)}
 				Position={new UDim2(0, (lineStartX + lineEndX) / 2, 0, (lineStartY + lineEndY) / 2)}
 			/>
 		),
@@ -339,6 +341,7 @@ function GraphNode(props: GraphNodeProps) {
 				Size={new UDim2(0, 5, 0, 5)}
 				BorderSizePixel={0}
 				BackgroundColor3={new Color3(0, 0, 0)}
+				BackgroundTransparency={props.keyFrame ? 0 : 1}
 				ZIndex={2}
 			/>
 		),

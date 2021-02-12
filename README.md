@@ -1,5 +1,5 @@
 <div align="center">
-	<h1>Filmmaker Plugin</h1>
+	<h1>Filmmaker</h1>
 	<a href="https://discord.gg/zjjWcyh">
 		<img alt="Discord" src="https://img.shields.io/discord/745446273854734407">
 	</a>
@@ -9,11 +9,16 @@
 </div>
 <br>
 
-The plugin version of Filmmaker. 
+Filmmaker, the Animation Suite by Gyro Labs. This is the Github for Filmmaker, and where you can find most of the releases
+and code for Filmmaker. This is public for your viewing pleasure, as well as to document older versions of Filmmaker. If
+you would like to help Filmmaker, please create a pull request.
 
-To build and run Filmmaker as a plugin: 
+All the documentation markdown is found within the `/docs` directory.
+
+## Building
+To build and run Filmmaker, first install Node.js. Then, while having the working directory as the Filmmaker source, run:
 ```
-rbxtsc
-rojo build --output "Filmmaker.rbxmx"
+npm run build
 ```
-Then simply copy the output into your plugins folder. You can also use the Roblox or Github releases.
+This will output a `filmmaker.rbxmx` file. Simply copy the output into your plugins folder. You can also use the Roblox 
+or Github releases that are posted.

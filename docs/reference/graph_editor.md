@@ -6,7 +6,7 @@ There is a toolbar at the top of the graph editor. It houses many of the control
 tangents to the File and Edit menus.
 
 <figure>
-  <img src="../assets/images/Graph_Editor.png" width="300" />
+  <img src="./assets/images/Plugin_Folder_Toolbar.png" width="300" />
   <figcaption>Early Screenshot of the Graph Editor. Everything shown is subject to large changes.</figcaption>
 </figure>
 

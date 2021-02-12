@@ -1,7 +1,6 @@
 site_name: Filmmaker
 site_url: https://gyrolabs.github.io/filmmaker/
 site_author: Gyro Laboratories
-site_keywords: animation, roblox
 site_description: >-
   Create fluid animation with Filmmaker, the animation suite produced
   by Gyro Laboratories. Explore many different possibilities,
@@ -18,7 +17,6 @@ theme:
 
   features:
     - navigation.tabs
-    - navigation.instant
 
   palette:
     scheme: default
@@ -41,6 +39,8 @@ nav:
   - Contributing:
     - Code Contributions: contributing/contributing.md
     - Animation Contributions: contributing/animations.md
+  - API:
+      - api/index.html
 
 markdown_extensions:
   - admonition

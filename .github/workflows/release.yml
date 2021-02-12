@@ -16,9 +16,9 @@ jobs:
         submodules: true
 
     - name: Use Node.js 12
-      uses: actions/setup-node@v2-beta
-      with:
-        node-version: '12'
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
 
     - name: Install roblox-ts
       run: |
@@ -72,6 +72,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+
+      - name: Generate TypeDocs
+        run: npx typedoc
+
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x

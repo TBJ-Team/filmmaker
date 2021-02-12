@@ -1,11 +1,14 @@
 {
 	"name": "filmmaker",
 	"tree": {
-		"$path": "out",
-		"include": {
-			"$path": "include",
-			"node_modules": {
-				"$path": "node_modules/@rbxts"
+		"$className": "Folder",
+		"Filmmaker": {
+			"$path": "out",
+			"include": {
+				"$path": "include",
+				"node_modules": {
+					"$path": "node_modules/@rbxts"
+				}
 			}
 		}
 	}
