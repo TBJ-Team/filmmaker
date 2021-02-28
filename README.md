@@ -6,6 +6,9 @@
 	<a href="https://github.com/TBJ-Team/filmmaker-plugin/actions">
 		<img alt="CI" src="https://github.com/TBJ-Team/filmmaker-plugin/workflows/CI/badge.svg">
 	</a>
+	<a href="https://github.com/GyroLabs/filmmaker">
+		<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/GyroLabs/filmmaker">
+	</a>
 </div>
 <br>
 
